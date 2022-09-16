@@ -35,6 +35,8 @@ import { OrderComponent } from './components/order/order.component';
     RegisterComponent,
     CartComponent,
     OrderComponent,
+  
+  
  
     
     
@@ -42,6 +44,7 @@ import { OrderComponent } from './components/order/order.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+
   
   ],
   providers: [],
