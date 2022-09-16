@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+
+
+<div class="main-container" fxLayout="row">
+      
+    <div class="cart-detail" fxLayoutGap="7rem">    
+        <div fxLayout="row" >
+            <h1 style="margin: 0 3rem;">Product</h1>
+            <h1 style="margin-left: 8rem;">Unit Price</h1>
+            <h1 style="margin-left: 9rem;">Quantity</h1>
+            <h1 style="margin-left: 9rem;">Total</h1>
+        </div>
+        <div class="flex-container" fxLayout="column" *ngFor="let product of [1,2,3]">
+            <div class="flex-container" fxLayout="row" >
+               <img class="img-card" src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c2hvZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" >
+               <h2 style="margin-left: 1rem;">Bata</h2>
+               <h2 style="margin: 0 9rem">500</h2>
+               <button  mat-button-raised class="card-btn"></button>
+               <h2 style="margin: 0 1rem;">4</h2>
+               <button  mat-button-raised class="card-btn"></button>
+
+
+               <h2 style="margin-left: 8rem;  margin-right: 3rem;">100</h2>
+               <button   mat-button  class="card-btn"></button>
+            </div>       
+        </div>
+    </div>  
+
+    
+
+    <div class="payment-detail"> 
+        <div class="card-logo">
+          <img id="credit-card" src="https://banner2.cleanpng.com/20180824/hhu/kisspng-logo-brand-payment-image-product-design-cufflins-the-sultans-of-swag-5b7fa2a54e5f22.728151171535091365321.jpg" alt="cards" >
+         
+        </div>
+        
+        
+        <div class="form-container">
+            <h2 style="margin-top: 1rem;">Card Name:</h2>
+            <div class="example-full-width" appearance="fill"  class="full-width">
+                <h4>Card Name</h4>
+                <input type="text" matInput > 
+            </div>    
+          
+        </div> 
+       
+
+       
+        <div class="form-container">
+            <h2 style="margin-top: 1rem;">Card Number:</h2>
+            <div  appearance="fill" class="full-width">
+                <h3>Card Number</h3>
+                <input type="text" matInput > 
+            </div>  
+           
+        </div> 
+        
+
+        
+        <div style="margin-top: 1rem;" fxLayout="row"><h3>Subtotal:</h3>
+            <h2 class="costVal">10</h2>
+        </div>
+        <div fxLayout="row"><h3>Shipping:</h3> <h2  class="costVal">20</h2></div>
+        <div fxLayout="row"><h3>Total (including Tax):</h3> <h2  class="costVal">9</h2></div>
+       
+        <button style="margin-left: 11rem;"mat-raised-button>Checkout</button>
+    </div>     
+</div>
+
+
+<app-footer></app-footer>
