@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SliderComponent } from './components/slider/slider.component';
 
 import { CatagoryItemComponent } from './components/catagory-item/catagory-item.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CatagoryItemComponent } from './components/catagory-item/catagory-item.
     ProductItemComponent,
     NavbarComponent,
     SliderComponent,
-    CatagoryItemComponent
+    CatagoryItemComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
