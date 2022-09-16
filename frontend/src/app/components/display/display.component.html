@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+    <div class="menu">
+         <app-checkbox></app-checkbox>  
+         <h6 style="margin-top: 3rem;">Price</h6>
+         <div class="d-flex">
+            <input style="width: 4rem;"type="number" name="min" id="min" placeholder="Min">
+            <input style="width: 4rem;" type="number" name="max" id="max" placeholder="Max">
+            <button style="color: primary;" type="submit"></button>
+         </div>
+         <app-checkbox-services-option></app-checkbox-services-option>
+    </div>
+
+    <div class="product-list">
+        <h2 style="text-align:center; margin-top: 3rem;">Products:</h2 >   
+        <div class="d-flex ">
+                <div  *ngFor="let index of [1,2,3]">
+                    <app-product-item></app-product-item>
+                </div>
+        </div>
+    </div>
+    
+</div>   
+
+<app-footer></app-footer>
