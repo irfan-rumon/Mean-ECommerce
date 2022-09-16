@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SliderComponent } from './components/slider/slider.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     ProductItemComponent,
-    NavbarComponent
+    NavbarComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
