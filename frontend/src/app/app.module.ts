@@ -8,13 +8,16 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SliderComponent } from './components/slider/slider.component';
 
+import { CatagoryItemComponent } from './components/catagory-item/catagory-item.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     ProductItemComponent,
     NavbarComponent,
-    SliderComponent
+    SliderComponent,
+    CatagoryItemComponent
   ],
   imports: [
     BrowserModule,

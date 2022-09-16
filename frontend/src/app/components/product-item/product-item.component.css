@@ -1,7 +1,10 @@
+
+
 body {
     padding: 2rem 0rem;
   }
   
-  .like {
+body .like {
     font-size: 1.5rem;
-  }
+}
+

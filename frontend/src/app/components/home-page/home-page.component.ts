@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
+  arr: number[] = [1,2,3, 4, 5];
   constructor() { }
 
   ngOnInit(): void {
