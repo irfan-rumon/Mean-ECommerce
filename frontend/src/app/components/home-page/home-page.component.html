@@ -5,8 +5,8 @@
 
 <h2 style="text-align:center; margin-top: 3rem;">Catagories</h2 >
 <div id="catagory-section">
-    <div  *ngFor="let index of arr">
-        <app-catagory-item></app-catagory-item>
+    <div  *ngFor="let cat of catagories">
+        <app-catagory-item [name]="cat.name" [imageURL]="cat.imageURL"></app-catagory-item>
     </div>
 </div>
 

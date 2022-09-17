@@ -5,4 +5,6 @@ export interface Product {
     unitPrice : number;
     quantity: number;
     catagory:string;
+    brand: string;
+    isTrending: boolean;
   }
