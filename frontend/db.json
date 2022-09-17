@@ -1,17 +1,89 @@
 {
-   "catagories": [
-       {"id" : 1, "name": "Cloth", "imageURL" : "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1072&q=80"},
-       {"id" : 2, "name": "Smartphone", "imageURL": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" },
-       {"id" : 3, "name": "Watch", "imageURL": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" }
-       
-   ],
-
+  "catagories": [
+    {
+      "id": 1,
+      "name": "Cloth",
+      "imageURL": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1072&q=80"
+    },
+    {
+      "id": 2,
+      "name": "Smartphone",
+      "imageURL": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+    },
+    {
+      "id": 3,
+      "name": "Watch",
+      "imageURL": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+    },
+    {
+      "id": 4,
+      "name": "Perfume",
+      "imageURL": "https://images.unsplash.com/photo-1587304189829-5fff89ba0c4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyZnVtZSUyMG9pbHxlbnwwfHwwfHw%3D&w=1000&q=80"
+    }
+  ],
   "products": [
-   
+    {
+      "id": "1",
+      "catagoryID": "1",
+      "name": "Shirt",
+      "brand": "Polo",
+      "unitPrice": "100",
+      "quantity": "6",
+      "imageURL": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      "isTrending": "false"
+    },
+    {
+      "id": "2",
+      "catagoryID": "1",
+      "name": "Shoes",
+      "brand": "Bata",
+      "unitPrice": "500",
+      "quantity": "4",
+      "imageURL": "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      "isTrending": "true"
+    },
+    {
+      "id": "3",
+      "catagoryID": "1",
+      "name": "Jeans",
+      "brand": "Levis",
+      "unitPrice": "800",
+      "quantity": "4",
+      "imageURL": "https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      "isTrending": "false"
+    },
+    {
+      "id": "4",
+      "catagoryID": "2",
+      "name": "iPhone",
+      "brand": "Apple",
+      "unitPrice": "8000",
+      "quantity": "7",
+      "imageURL": "https://images.unsplash.com/photo-1591337676887-a217a6970a8a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
+      "isTrending": "true"
+    },
+    {
+      "id": "5",
+      "catagoryID": "2",
+      "name": "Redmi",
+      "brand": "Xiami",
+      "unitPrice": "8000",
+      "quantity": "5",
+      "imageURL": "https://images.unsplash.com/photo-1581003989510-ba20094d343c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=432&q=80",
+      "isTrending": "false"
+    },
+    {
+      "id": "6",
+      "catagoryID": "2",
+      "name": "Galaxy7",
+      "brand": "Samsung",
+      "unitPrice": "9000",
+      "quantity": "5",
+      "imageURL": "https://images.unsplash.com/photo-1583574333311-3a86605c76b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80",
+      "isTrending": "false"
+    }
   ],
-  "carts": [
-    
-  ],
+  "carts": [],
   "orders": [
     {
       "id": 1,
