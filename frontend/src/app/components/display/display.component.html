@@ -16,8 +16,13 @@
     <div class="product-list">
         <h2 style="text-align:center; margin-top: 3rem;">Products:</h2 >   
         <div class="d-flex ">
-                <div  *ngFor="let index of [1,2,3]">
-                    <app-product-item></app-product-item>
+                <div  *ngFor="let pr of products">
+                    <app-product-item
+                         [name]="pr.name"
+                         [imageURL]="pr.imageURL"
+                         [brand]="pr.brand"
+                         [unitPrice]="pr.unitPrice"
+                    ></app-product-item>
                 </div>
         </div>
     </div>

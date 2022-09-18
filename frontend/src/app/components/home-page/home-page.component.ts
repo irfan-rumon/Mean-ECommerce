@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Catagory } from 'src/app/models/catagory';
 import { Product } from 'src/app/models/product';
 import { ProductApiService } from 'src/app/services/product-api.service';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-home-page',
@@ -14,29 +15,37 @@ export class HomePageComponent implements OnInit {
 
   catagories: Catagory[] = [];
   products: Product[];
-  trendingProducts: Product[] = []
-
+  trendingProducts: Product[] = [];
+ 
   
   constructor(private router: Router, private catagoryApi:CatagoryApiService,
-              private productApi: ProductApiService
+              private productApi: ProductApiService,
+              private searchService: SearchService
     ) { }
 
   ngOnInit(): void {
     this.catagoryApi.getCatagories().subscribe(  (catagories)=>{
        this.catagories = catagories;
-       console.log("heyy", catagories);
     } )
     this.productApi.getProducts().subscribe( (products)=>{
          this.products = products;
          for (let pr of this.products){
-            console.log("Trending Status:",  pr.isTrending);
-            console.log("Type of trending variable:", typeof pr.isTrending);
             if( pr.isTrending == true)this.trendingProducts.push( pr );
          }
-         //console.log("Products:", this.products);
-         console.log("Trending:", this.trendingProducts);
     } )
 
+  }
+
+  onCatClick(catID: number){
+    let  searchedProducts: Product[] = [];
+    for (let pr of this.products){
+       if( pr.catagoryID == catID){
+          searchedProducts.push(pr);
+       }
+    }
+    this.searchService.setProducts(searchedProducts);
+    console.log( this.searchService.getProducts()  );
+    this.router.navigate(['/display']);
   }
 
 }
