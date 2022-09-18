@@ -12,6 +12,8 @@ export class SearchService {
 
   constructor() { }
 
+  
+
   setProducts(products: Product[]){
     this.products = products;
   }
