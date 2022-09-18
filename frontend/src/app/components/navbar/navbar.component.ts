@@ -58,14 +58,14 @@ export class NavbarComponent implements OnInit {
 
     //product name wise search logic if applicable
     for(let pr of this.products){
-      if(pr.name.includes(seachItem)){
+      if(pr.name.includes(seachItem) && !searchedProducts.includes(pr)){
         searchedProducts.push(pr);
       }
     }
 
     //brand name wise search logic if applicable
     for(let pr of this.products){
-      if(pr.brand.includes(seachItem)){
+      if(pr.brand.includes(seachItem) && !searchedProducts.includes(pr)){
         searchedProducts.push(pr);
       }
     }

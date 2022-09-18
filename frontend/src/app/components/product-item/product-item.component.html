@@ -1,41 +1,28 @@
-
-<body>
-<div class="container ">
-   
-  <div >
-    <div class="card">
-      <img class="card-img" src="{{ imageURL }}" alt="Vans">
-      <div class="card-img-overlay d-flex">
-        <a href="#" class="card-link text-danger like">
-          <i class="bi bi-heart-fill"></i>
-        </a>
-      </div>
-      <div class="card-body">
-        <h4 class="card-title">{{ name }}</h4>
-        <h6 class="card-subtitle mb-2 text-muted">{{ brand }}</h6>
-        <p class="card-text">
-          </p>
-        <div class="options d-flex flex-fill">
-           <select class="custom-select mr-1">
-              <option selected>Color</option>
-              <option value="1">Green</option>
-              <option value="2">Blue</option>
-              <option value="3">Red</option>
-          </select>
-          <select class="custom-select ml-1">
-              <option selected>Size</option>
-              <option value="1">41</option>
-              <option value="2">42</option>
-              <option value="3">43</option>
-          </select>
+<div class="container mt-2"  style="margin-left: 33%;">
+  <!--   <div class="card card-block mb-2">
+      <h4 class="card-title">Card 1</h4>
+      <p class="card-text">Welcom to bootstrap card styles</p>
+      <a href="#" class="btn btn-primary">Submit</a>
+    </div>   -->
+    
+     
+    
+     
+     
+      <div class="container">
+        <div class="card item-card card-block ">
+        <h4 class="item-card-title text-right"><i class="material-icons"></i></h4>
+          <img src="{{ product.imageURL }}" alt="Photo of sunset">
+          <h5 class="card-title ms-5 mt-3 mb-4 center">{{ product.name }}</h5>
+         
+          <div class="d-flex">
+              <h3 class="ms-2" style="color: green; margin-bottom:2rem">${{product.unitPrice}}</h3>
+             
+              <button (click)="onAddToCart(product.id)" type="button" id="costing"> <i style="font-size: 1rem; " class="bi bi-cart-fill"></i>Add Cart</button>
+          </div>
+         
         </div>
-        <div class="buy d-flex  align-items-center">
-          <div class="price text-success"><h5 class="mt-4 me-5">${{unitPrice}}</h5></div>
-           <a href="#" class="btn btn-danger mt-3"><i class="bi bi-cart"></i> Add to Cart</a>
-        </div>
-      </div>
-    </div>
-  </div>
+      </div>  
+      
 </div>
-
-</body>
+  

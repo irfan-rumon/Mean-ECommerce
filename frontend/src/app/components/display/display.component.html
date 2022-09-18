@@ -18,10 +18,7 @@
         <div class="d-flex ">
                 <div  *ngFor="let pr of products">
                     <app-product-item
-                         [name]="pr.name"
-                         [imageURL]="pr.imageURL"
-                         [brand]="pr.brand"
-                         [unitPrice]="pr.unitPrice"
+                        [product]="pr"
                     ></app-product-item>
                 </div>
         </div>

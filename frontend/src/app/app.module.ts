@@ -20,7 +20,6 @@ import { FormsModule } from '@angular/forms';
 import { AdminProductComponent } from './components/admin-product/admin-product.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
-import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -42,14 +41,15 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
     AdminProductComponent,
     AddProductComponent,
     EditProductComponent,
-    AdminDashboardComponent  
+   
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    
 
   
   ],
