@@ -12,8 +12,14 @@
 
 <h2 style="text-align:center; margin-top: 3rem;">Trending</h2 >   
         <div class="d-flex ">
-            <div  *ngFor="let index of [1,2,3, 4]">
-                <app-product-item></app-product-item>
+            <div  *ngFor="let pr of trendingProducts">
+                <app-product-item
+                   [name]="pr.name"
+                   [unitPrice]="pr.unitPrice"
+                   [imageURL]="pr.imageURL"
+                   [brand]="pr.brand"
+                
+                ></app-product-item>
             </div>
         </div>
 
