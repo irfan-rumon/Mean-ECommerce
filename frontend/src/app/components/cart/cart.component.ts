@@ -43,16 +43,38 @@ export class CartComponent implements OnInit {
     for(let cp  of this.cartProducts){
       if(cp.id == cartProduct.id){ 
           cp.quantity++;
-          cp.subtotal = +cp.unitPrice  + +cp.subtotal;  
+          cp.subtotal = +cp.unitPrice  +  +cp.subtotal;
+          this.total += +cp.unitPrice;
+          this.grandTotal += +cp.unitPrice;  
           this.cartService.editCartProduct(cartProduct.id, cp).subscribe(); 
           return; 
       }
     }
   }
-  
-  minusQuantity(cp:CartProduct){
-     console.log(cp);
+
+  minusQuantity(cartProduct:CartProduct){
+    if( cartProduct.quantity == 1){
+        this.deleteCartProduct(cartProduct);
+        return;
+    }
+    this.totalAddedQuanty--;
+    for(let cp  of this.cartProducts){
+      if(cp.id == cartProduct.id){ 
+          cp.quantity--;
+          cp.subtotal =  +cp.subtotal -  +cp.unitPrice;  
+          this.total -= +cp.unitPrice;
+          this.grandTotal -= +cp.unitPrice;
+          this.cartService.editCartProduct(cartProduct.id, cp).subscribe(); 
+          return; 
+      }
+    }
+
   }
+
+  deleteCartProduct(cartProduct:CartProduct){
+
+  }
+ 
       
 
 
