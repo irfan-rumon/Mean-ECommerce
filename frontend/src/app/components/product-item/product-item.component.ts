@@ -31,9 +31,7 @@ export class ProductItemComponent implements OnInit {
         if(cp.id == product.id){ //already exist,
             cp.quantity++;
             cp.subtotal = +cp.unitPrice  + +cp.subtotal;  
-            this.cartService.editCartProduct(product.id, cp).subscribe(
-               (kk)=>{console.log("Edited:", kk);}
-            ); 
+            this.cartService.editCartProduct(product.id, cp).subscribe(); 
             return; 
         }
       }

@@ -45,11 +45,11 @@
                            
                             <td class="medium-font">
                                 <div class="input-group bootstrap-touchspin">
-                                 <button type="button" style="margin-right: 1rem;" ><span style="font-size: 1rem; font-weight:bold;">+</span></button>   
+                                 <button type="button" (click)="minusQuantity(cp)" style="margin-right: 1rem;" ><span style="font-size: 1rem; font-weight:bold;">-</span></button>   
                                
                                  {{cp.quantity}}
 
-                                 <button type="button" style="margin-left: 1rem;" ><span style="font-size: 1rem; font-weight:bold;">+</span></button>    
+                                 <button type="button" (click)="addQuantity(cp)" style="margin-left: 1rem;" ><span style="font-size: 1rem; font-weight:bold;">+</span></button>    
                                
                                
                                

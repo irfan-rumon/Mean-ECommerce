@@ -38,6 +38,21 @@ export class CartComponent implements OnInit {
      
   }
 
+  addQuantity(cartProduct:CartProduct){
+    this.totalAddedQuanty++;
+    for(let cp  of this.cartProducts){
+      if(cp.id == cartProduct.id){ 
+          cp.quantity++;
+          cp.subtotal = +cp.unitPrice  + +cp.subtotal;  
+          this.cartService.editCartProduct(cartProduct.id, cp).subscribe(); 
+          return; 
+      }
+    }
+  }
+  
+  minusQuantity(cp:CartProduct){
+     console.log(cp);
+  }
       
 
 
