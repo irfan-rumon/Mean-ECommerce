@@ -178,6 +178,9 @@ body{margin-top:20px;
         position: relative;
     }
     
+    .medium-font{
+        font-weight: 500;
+    }
     .plus {
         position: absolute;
         top: -4px;
@@ -324,3 +327,4 @@ body{margin-top:20px;
         font-weight: bolder;
         font-size: medium;
     }
+

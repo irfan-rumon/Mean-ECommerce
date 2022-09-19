@@ -37,39 +37,40 @@
                                     <img src="{{cp.imageURL}}" alt="Adidas Men Red Printed T-shirt" title="" width="47" height="47">
                                 </a>
                             </td>
-                            <td>{{cp.name}}</td>
+                            <td class="medium-font">{{cp.name}}</td>
         
                             
-                            <td>
+                            <td class="medium-font">
                                 {{cp.brand}}
                             </td>
                            
-                            <td>
+                            <td class="medium-font">
                                 <div class="input-group bootstrap-touchspin">
-                                    <span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-down" type="button">-</button>
-                                    </span>
+                                 <button type="button" style="margin-right: 1rem;" ><span style="font-size: 1rem; font-weight:bold;">+</span></button>   
                                
                                  {{cp.quantity}}
+
+                                 <button type="button" style="margin-left: 1rem;" ><span style="font-size: 1rem; font-weight:bold;">+</span></button>    
                                
-                                <span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up" type="button">+</button>
-                                </span>
+                               
                                
                             </div>
                             </td>
-                            <td class="price">$ {{cp.unitPrice}}</td>
-                            <td>${{cp.subtotal}}</td>
+                            <td class="price medium-font">$ {{cp.unitPrice}}</td>
+                            <td class="medium-font">${{cp.subtotal}}</td>
                             <td class="text-center">
-                                <a href="#" class="remove_cart" rel="1">
+                                <a class="remove_cart" rel="1">
                                     <i class="fa fa-trash-o"></i>
                                 </a>
                             </td>
                         </tr>
-                        <tr>
-                            <td colspan="6" align="right">Total</td>
-                            <td class="total" colspan="2"><b>$ 163.47</b>
-                            </td>
-                        </tr>
+                        
                     </tbody>
+                    <tr>
+                        <td colspan="6" align="right">Total</td>
+                        <td class="total" colspan="2"><b>$ 163.47</b>
+                        </td>
+                    </tr>
                 </table>
             </div>
 
@@ -135,7 +136,7 @@
                     <button class="btn-block btn-blue">
                         <span>
                             <span id="checkout">Checkout</span>
-                            <span id="check-amt">$26.48</span>
+                           
                         </span>
                     </button>
                 </div>

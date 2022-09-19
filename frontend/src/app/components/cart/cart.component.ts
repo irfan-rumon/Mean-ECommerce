@@ -22,9 +22,10 @@ export class CartComponent implements OnInit {
               private productApi: ProductApiService) { }
 
   ngOnInit(): void {
-      
+      this.cartService.getCartProducts().subscribe( (cartProducts)=>{
+        this.cartProducts = cartProducts;
+      } )
      
-  
   }
 
       
