@@ -5,6 +5,7 @@ import { ProductApiService } from 'src/app/services/product-api.service';
 import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
 import { CartProduct } from 'src/app/models/cartProduct';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -72,7 +73,15 @@ export class CartComponent implements OnInit {
   }
 
   deleteCartProduct(cartProduct:CartProduct){
+      this.total -= +cartProduct.subtotal;
+      this.grandTotal -= +cartProduct.subtotal;
+      this.totalAddedQuanty -= +cartProduct.quantity;
 
+      this.cartService.deleteCartProduct(cartProduct.id).subscribe(); //external server theke delete
+      const indexOfObject = this.cartProducts.findIndex((object) => {
+        return object === cartProduct;
+      });  
+      this.cartProducts.splice(indexOfObject, 1);//internal array theke delete
   }
  
       

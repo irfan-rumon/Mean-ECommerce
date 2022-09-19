@@ -58,9 +58,7 @@
                             <td class="price medium-font">$ {{cp.unitPrice}}</td>
                             <td class="medium-font">${{cp.subtotal}}</td>
                             <td class="text-center">
-                                <a class="remove_cart" rel="1">
-                                    <i class="fa fa-trash-o"></i>
-                                </a>
+                                <i class="bi bi-trash-fill" (click)="deleteCartProduct(cp)" style="color: red; font-size: 1.2rem;"></i>
                             </td>
                         </tr>
                         
