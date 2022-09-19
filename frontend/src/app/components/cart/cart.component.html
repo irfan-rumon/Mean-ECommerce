@@ -1,5 +1,4 @@
-
-<app-navbar></app-navbar>
+<app-navbar [totalAddedQuantity]="totalAddedQuanty"></app-navbar>
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container bootdey">
@@ -67,8 +66,8 @@
                         
                     </tbody>
                     <tr>
-                        <td colspan="6" align="right">Total</td>
-                        <td class="total" colspan="2"><b>$ 163.47</b>
+                        <td colspan="6" align="right">Total:</td>
+                        <td class="total" colspan="2"><b>${{total}}</b>
                         </td>
                     </tr>
                 </table>
@@ -122,16 +121,16 @@
                 </div>
                 <div class="col-lg-4 mt-2">
                     <div class="row d-flex justify-content-between px-4">
-                        <p class="mb-1 text-left">Subtotal</p>
-                        <h6 class="mb-1 text-right">$23.49</h6>
+                        <p class="mb-1 text-left">Total</p>
+                        <h6 class="mb-1 text-right">${{total}}</h6>
                     </div>
                     <div class="row d-flex justify-content-between px-4">
                         <p class="mb-1 text-left">Shipping</p>
-                        <h6 class="mb-1 text-right">$2.99</h6>
+                        <h6 class="mb-1 text-right">${{shipping}}</h6>
                     </div>
                     <div class="row d-flex justify-content-between px-4" id="tax">
-                        <p class="mb-1 text-left">Total (tax included)</p>
-                        <h6 class="mb-1 text-right">$26.48</h6>
+                        <p class="mb-1 text-left">Grand Total (tax included)</p>
+                        <h6 class="mb-1 text-right">${{grandTotal}}</h6>
                     </div>
                     <button class="btn-block btn-blue">
                         <span>
