@@ -1,4 +1,6 @@
-<app-navbar></app-navbar>
+<app-navbar
+   [totalAddedQuantity]="totalAddedQuanty"
+></app-navbar>
 
 <div class="container">
 
@@ -19,6 +21,7 @@
                 <div  *ngFor="let pr of products">
                     <app-product-item
                         [product]="pr"
+                        (onAddCart)="addAddedQuantity()" 
                     ></app-product-item>
                 </div>
         </div>

@@ -29,49 +29,35 @@
                             <td class="header">Remove</td>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody *ngFor="let cp of cartProducts">
+                       
                         <tr>
                             <td class="hidden-xs">
                                 <a href="#">
-                                    <img src="https://via.placeholder.com/200x200/" alt="Adidas Men Red Printed T-shirt" title="" width="47" height="47">
+                                    <img src="{{cp.imageURL}}" alt="Adidas Men Red Printed T-shirt" title="" width="47" height="47">
                                 </a>
                             </td>
-                            <td>Mango</td>
+                            <td>{{cp.name}}</td>
         
                             
                             <td>
-                                Rajshahi
+                                {{cp.brand}}
                             </td>
                            
                             <td>
-                                <div class="input-group bootstrap-touchspin"><span class="input-group-btn"><button class="btn btn-default header bootstrap-touchspin-down" type="button">-</button></span><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" name="" value="2" class="input-qty form-control text-center" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up header" type="button">+</button></span></div>
+                                <div class="input-group bootstrap-touchspin">
+                                    <span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-down" type="button">-</button>
+                                    </span>
+                               
+                                 {{cp.quantity}}
+                               
+                                <span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up" type="button">+</button>
+                                </span>
+                               
+                            </div>
                             </td>
-                            <td class="price">$ 20.63</td>
-                            <td>$ 41.26</td>
-                            <td class="text-center">
-                                <a href="#" class="remove_cart" rel="1">
-                                    <i class="fa fa-trash-o"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="hidden-xs">
-                                <a href="#">
-                                    <img src="https://via.placeholder.com/200x200/" alt="Adidas Men Red Printed T-shirt" title="" width="47" height="47">
-                                </a>
-                            </td>
-                            <td>Mango</td>
-        
-                            
-                            <td>
-                                Rajshahi
-                            </td>
-                           
-                            <td>
-                                <div class="input-group bootstrap-touchspin"><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-down" type="button">-</button></span><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" name="" value="2" class="input-qty form-control text-center" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up" type="button">+</button></span></div>
-                            </td>
-                            <td class="price">$ 20.63</td>
-                            <td>$ 41.26</td>
+                            <td class="price">$ {{cp.unitPrice}}</td>
+                            <td>${{cp.subtotal}}</td>
                             <td class="text-center">
                                 <a href="#" class="remove_cart" rel="1">
                                     <i class="fa fa-trash-o"></i>

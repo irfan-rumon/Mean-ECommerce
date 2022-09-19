@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+import { CartProduct } from 'src/app/models/cartProduct';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
 @Component({
@@ -9,15 +11,40 @@ import { CartService } from 'src/app/services/cart.service';
 export class ProductItemComponent implements OnInit {
 
   @Input() product:Product;
+  @Output() onAddCart: EventEmitter<Product> = new EventEmitter();
+
+  cartProducts: CartProduct[];
 
 
-  constructor() { }
+  constructor(private router: Router, private cartService: CartService) { }
 
   ngOnInit(): void {
+     this.cartService.getCartProducts().subscribe( (cartProducts)=>{
+         this.cartProducts = cartProducts;
+     })
   }
 
-  onAddToCart(productID:number){
-      console.log("product id: ", productID);
+  onAddToCart(product: Product){
+      this.onAddCart.emit(product); //parent componentke inform kora
+
+      for(let cp  of this.cartProducts){
+        if(cp.id == product.id){ //already exist,
+            cp.quantity++;
+            cp.subtotal = +cp.unitPrice  + +cp.subtotal;  
+            this.cartService.editCartProduct(product.id, cp).subscribe(
+               (kk)=>{console.log("Edited:", kk);}
+            ); 
+            return; 
+        }
+      }
+      let newCartProduct = {} as CartProduct;
+      newCartProduct.id = product.id;  newCartProduct.brand=product.brand;
+      newCartProduct.name=product.name;  newCartProduct.imageURL=product.imageURL;
+      newCartProduct.unitPrice=product.unitPrice; newCartProduct.quantity=1;
+      newCartProduct.subtotal=product.unitPrice;
+
+      this.cartService.addCartProduct( newCartProduct  ).subscribe();
+      this.cartProducts.push(newCartProduct);
   }
 
   

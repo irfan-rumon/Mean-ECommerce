@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { Catagory } from 'src/app/models/catagory';
 import { SearchService } from 'src/app/services/search.service';
 import { ProductApiService } from 'src/app/services/product-api.service';
 import { CatagoryApiService } from 'src/app/services/catagory-api.service';
+import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -15,13 +16,15 @@ export class NavbarComponent implements OnInit {
   products: Product[] = [];
   catagories: Catagory[] = [];
   inputVal: string;
+  @Input() totalAddedQuantity: number;
 
 
   constructor(
       private router:Router,
       private searchService: SearchService,
       private productApi: ProductApiService,
-      private catagoryApi: CatagoryApiService
+      private catagoryApi: CatagoryApiService,
+      private cartService: CartService
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +34,7 @@ export class NavbarComponent implements OnInit {
       this.catagoryApi.getCatagories().subscribe( (cats)=>{
         this.catagories = cats;
      } )
+   
      
   }
 

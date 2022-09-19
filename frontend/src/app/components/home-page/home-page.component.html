@@ -1,4 +1,6 @@
-<app-navbar></app-navbar>
+<app-navbar
+   [totalAddedQuantity]="totalAddedQuanty"
+></app-navbar>
 
 <app-slider></app-slider>
 
@@ -19,6 +21,7 @@
             <div  *ngFor="let pr of trendingProducts">
                 <app-product-item
                   [product]="pr"
+                  (onAddCart)="addAddedQuantity()" 
                 
                 ></app-product-item>
             </div>

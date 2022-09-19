@@ -1,54 +1,40 @@
-import { identifierName } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { CartMapper } from '../models/cartMapper';
+import { Observable } from 'rxjs';
+import { CartProduct } from '../models/cartProduct';
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  }),
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  cartMapper: CartMapper[] = [];
+  private apiUrl = 'http://localhost:3000/carts';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  addQuantity(productID:number){
-    for(let cartMp of this.cartMapper){
-        if(cartMp.productID == productID){
-          cartMp.productQuantity++;
-          return;
-        }
-    }
-    let cartMpElement:CartMapper = {} as CartMapper;
-    cartMpElement.productID = productID;
-    cartMpElement.productQuantity = 1;
-    this.cartMapper.push( cartMpElement )  ;
+  getCartProducts(): Observable<CartProduct[]>{
+    return this.http.get<CartProduct[]>(this.apiUrl);
   }
 
-  getTotalQuantity(){
-    let totalQuantity = 0;
-    for(let cartMp of this.cartMapper)
-       totalQuantity += cartMp.productQuantity;
-    return totalQuantity;   
+  addCartProduct(cp: CartProduct): Observable<CartProduct> {
+    return this.http.post<CartProduct>(this.apiUrl, cp);
   }
 
-  removeQuantity(productID:number){
-    for(let cartMp of this.cartMapper){
-      if(cartMp.productID == productID){
-        if( cartMp.productQuantity == 1)
-           this.removeCartProduct(cartMp.productID);
-        cartMp.productQuantity--;
-        return;
-      }
-    }
-   
+  editCartProduct(id: any, cp:CartProduct): Observable<CartProduct> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.put<CartProduct>(url, cp, httpOptions);
   }
 
-  removeCartProduct(productID:number){
-    const indexOfObject = this.cartMapper.findIndex((object) => {
-      return object.productID === productID;
-    });
-
-    this.cartMapper.splice(indexOfObject, 1);
+  deleteCartProduct(cp: CartProduct): Observable<CartProduct> {
+    const url = `${this.apiUrl}/${cp.id}`;
+    return this.http.delete<CartProduct>(url);
   }
 
 }
