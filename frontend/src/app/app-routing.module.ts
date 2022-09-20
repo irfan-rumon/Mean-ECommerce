@@ -9,7 +9,8 @@ import { OrderComponent } from './components/order/order.component';
 import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
-     {path: '',  component:  HomePageComponent },
+     { path: '', redirectTo: 'login', pathMatch: 'full' }, 
+     {path: 'home',  component:  HomePageComponent },
      {path: 'display', component: DisplayComponent},
      {path: 'cart', component: CartComponent},
      {path: 'login', component: LoginComponent},

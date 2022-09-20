@@ -1,88 +1,75 @@
 
-<app-navbar></app-navbar>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+			<form>
+				<h3 style="margin-left: 10rem;margin-bottom:2rem;color: rgb(78, 78, 122);">Create Account:</h3>
+				<div class="form-group input-group" style="margin-bottom: 1.5rem;">
+					<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-user"></i> </span>
+					 </div>
+					<input name="" class="form-control" placeholder="Full name" type="text">
+				</div> <!-- form-group// -->
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+				<div class="form-group input-group" style="margin-bottom: 1.5rem;">
+					<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-user"></i> </span>
+					 </div>
+					<input name="" class="form-control" placeholder="Username" type="text">
+				</div> <!-- form-group// -->
 
+				<div class="form-group input-group" style="margin-bottom: 1.5rem;">
+					<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+					 </div>
+					<input name="" class="form-control" placeholder="Email address" type="email">
+				</div> <!-- form-group// -->
+				<div class="form-group input-group" style="margin-bottom: 1.5rem;">
+					<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+					</div>
+					
+					<input name="" class="form-control" placeholder="Phone number" type="text">
+				</div> <!-- form-group// -->
+				<div class="form-group input-group" style="margin-bottom: 1.5rem;">
+					<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-building"></i> </span>
+					</div>
+					<input name="" class="form-control" placeholder="Address" type="text"> 
+				</div> <!-- form-group end.// -->
+				<div class="form-group input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+					</div>
+					<input class="form-control" placeholder="Create password" type="password">
+				</div> <!-- form-group// -->
+				                                
+				  
 
+				<div class="text-center text-md-start mt-4 pt-2">
+					<button type="button" class="btn btn-primary"
+					  style="padding-left: 2.5rem; padding-right: 2.5rem;margin-left: 11rem;">Create Account</button>
+					
+				  </div>
+					
+					
+				                                                             
+				</form>
+				<p class="small fw-bold mt-2 pt-1 mb-0"style="margin-left: 11rem;">Already have an account? 
+					<a [routerLink] = "['/login']"
+					  class="link-primary" style="text-decoration: none;">Login</a></p>
+				
+        </div>
+      </div>
+    </div>
+  
+  </section>
 
-
-
-
-<div class="card bg-light">
-<article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="card-title mt-3 text-center">Create Account</h4>
-	<p class="text-center">Get started with your free account</p>
-	<p>
-		<a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
-		<a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
-	</p>
-	<p class="divider-text">
-        <span class="bg-light">OR</span>
-    </p>
-	<form>
-	<div class="form-group input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-		 </div>
-        <input name="" class="form-control" placeholder="Full name" type="text">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-		 </div>
-        <input name="" class="form-control" placeholder="Email address" type="email">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-		</div>
-		<select class="custom-select" style="max-width: 120px;">
-		    <option selected="">+971</option>
-		    <option value="1">+972</option>
-		    <option value="2">+198</option>
-		    <option value="3">+701</option>
-		</select>
-    	<input name="" class="form-control" placeholder="Phone number" type="text">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
-		</div>
-		<select class="form-control">
-			<option selected=""> Select job type</option>
-			<option>Designer</option>
-			<option>Manager</option>
-			<option>Accaunting</option>
-		</select>
-	</div> <!-- form-group end.// -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
-        <input class="form-control" placeholder="Create password" type="password">
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
-        <input class="form-control" placeholder="Repeat password" type="password">
-    </div> <!-- form-group// -->                                      
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
-    </div> <!-- form-group// -->      
-    <p class="text-center">Have an account? <a href="">Log In</a> </p>                                                                 
-</form>
-</article>
-</div> <!-- card.// -->
-
-
-<!--container end.//-->
-
-<br><br>
 
 <app-footer></app-footer>
