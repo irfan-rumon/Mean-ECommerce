@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ProductApiService } from 'src/app/services/product-api.service';
-
+import { OrderService } from 'src/app/services/order.service';
 import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
 import { CartProduct } from 'src/app/models/cartProduct';
+import { OrderProduct } from 'src/app/models/orderProduct';
+
 
 @Component({
   selector: 'app-cart',
@@ -24,6 +26,7 @@ export class CartComponent implements OnInit {
 
   constructor(private router:Router,
               private cartService: CartService,
+              private orderService: OrderService,
               private productApi: ProductApiService) { }
 
   ngOnInit(): void {
@@ -35,8 +38,7 @@ export class CartComponent implements OnInit {
             this.totalAddedQuanty += +cp.quantity;
         }
       } )
-      this.grandTotal = this.total + this.shipping;
-     
+      this.grandTotal = this.total + this.shipping;  
   }
 
   addQuantity(cartProduct:CartProduct){
@@ -83,6 +85,33 @@ export class CartComponent implements OnInit {
       });  
       this.cartProducts.splice(indexOfObject, 1);//internal array theke delete
   }
+
+   onCheckout(){
+      //this.router.navigate(['/order-confirmation']);
+      for(let cp of this.cartProducts){
+          if( cp.userID == 1){
+            let orderProduct:OrderProduct = {
+               id:+cp.id,
+               userID: +cp.userID,
+               imageURL: cp.imageURL,
+               name: cp.name,
+               unitPrice : +cp.unitPrice,
+               quantity: +cp.quantity,
+               brand: cp.brand,
+               subtotal: +cp.subtotal
+            }
+            this.orderService.addOrderProduct(orderProduct).subscribe();
+            this.cartService.deleteCartProduct(+cp.id).subscribe(  ()=>{
+              const indexOfObject = this.cartProducts.findIndex((object) => {
+                return object === cp;
+              });  
+              this.cartProducts.splice(indexOfObject, 1);//internal array theke delete
+            } );
+          }
+      }
+      this.router.navigate(['/myorder']);
+
+   }
  
       
 

@@ -143,19 +143,8 @@
       "isTrending": false
     }
   ],
-  "carts": [],
-  "orders": [
-    {
-      "id": 1,
-      "userId": 1,
-      "userAddress": "Mirpur-6, Dhaka",
-      "bill": 1500
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "userAddress": "Mirpur-1, Dhaka",
-      "bill": 1200
-    }
+  "cart-products": [],
+  "order-products": [
+    
   ]
 }

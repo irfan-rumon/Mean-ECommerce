@@ -15,7 +15,8 @@ const httpOptions = {
 })
 export class CartService {
 
-  private apiUrl = 'http://localhost:3000/carts';
+  private apiUrl = 'http://localhost:3000/cart-products';
+
 
   constructor(private http: HttpClient) { }
 

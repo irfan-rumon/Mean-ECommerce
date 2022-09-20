@@ -36,7 +36,7 @@ export class ProductItemComponent implements OnInit {
         }
       }
       let newCartProduct = {} as CartProduct;
-      newCartProduct.id = product.id;  newCartProduct.brand=product.brand;
+      newCartProduct.id = product.id; newCartProduct.userID = 1; newCartProduct.brand=product.brand;
       newCartProduct.name=product.name;  newCartProduct.imageURL=product.imageURL;
       newCartProduct.unitPrice=product.unitPrice; newCartProduct.quantity=1;
       newCartProduct.subtotal=product.unitPrice;
