@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar [totalAddedQuantity]="0"></app-navbar>
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container bootdey">
@@ -11,7 +11,7 @@
     <!-- Cart -->
     <div class="col-lg-9 col-md-9 col-sm-12">
         <div class="col-lg-12 col-sm-12">
-            <h3 class="title m-4" style="color: blueviolet;text-align: center;">SHOPPING CART</h3>
+            <h3 class="title m-4" style="color: blueviolet;text-align: center;">My Orders:</h3>
         </div>
         <div class="col-lg-12 col-sm-12 hero-feature">
             <div class="table-responsive">
@@ -28,44 +28,33 @@
                             
                         </tr>
                     </thead>
-                    <tbody *ngFor="let cp of cartProducts">
+                    <tbody *ngFor="let op of orderProducts">
                        
                         <tr>
                             <td class="hidden-xs">
                                 <a href="#">
-                                    <img src="{{cp.imageURL}}" alt="Adidas Men Red Printed T-shirt" title="" width="47" height="47">
+                                    <img src="{{op.imageURL}}" alt="Adidas Men Red Printed T-shirt" title="" width="47" height="47">
                                 </a>
                             </td>
-                            <td class="medium-font">{{cp.name}}</td>
+                            <td class="medium-font">{{op.name}}</td>
         
                             
                             <td class="medium-font">
-                                {{cp.brand}}
+                                {{op.brand}}
                             </td>
                            
                             <td class="medium-font">
-                                <div class="input-group bootstrap-touchspin">
-                                
-                               
-                                 {{cp.quantity}}
-
-                                 
-                               
-                               
-                               
+                                <div class="input-group bootstrap-touchspin">                              
+                                   {{op.quantity}}
                             </div>
                             </td>
-                            <td class="price medium-font">$ {{cp.unitPrice}}</td>
-                            <td class="medium-font">${{cp.subtotal}}</td>
+                            <td class="price medium-font">$ {{op.unitPrice}}</td>
+                            <td class="medium-font">${{op.subtotal}}</td>
                            
                         </tr>
                         
                     </tbody>
-                    <tr>
-                        <td colspan="6" align="right">Total:</td>
-                        <td class="total" colspan="2"><b>${{total}}</b>
-                        </td>
-                    </tr>
+                
                 </table>
             </div>
 
@@ -76,29 +65,9 @@
 </div>
 
 <div  class="row justify-content-center">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="row">
-              
-                
-                <div class="col-lg-4 mt-2">
-                    <div class="row d-flex justify-content-between px-4">
-                        <p class="mb-1 text-left">Total</p>
-                        <h6 class="mb-1 text-right">${{total}}</h6>
-                    </div>
-                    <div class="row d-flex justify-content-between px-4">
-                        <p class="mb-1 text-left">Shipping</p>
-                        <h6 class="mb-1 text-right">${{shipping}}</h6>
-                    </div>
-                    <div class="row d-flex justify-content-between px-4" id="tax">
-                        <p class="mb-1 text-left">Grand Total (tax included)</p>
-                        <h6 class="mb-1 text-right">${{grandTotal}}</h6>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
+       <h6 class="header" style="margin-left: 66rem;">Total:   <span class="price-info">${{total}}</span></h6>
+       <h6 class="header" style="margin-left: 66rem;">Shipping:   <span class="price-info">${{shipping}}</span></h6>
+       <h6 class="header" style="margin-left: 66rem;">Grand Total(Tax Included):   <span class="price-info">${{grandTotal}}</span></h6>
 </div>
 
 

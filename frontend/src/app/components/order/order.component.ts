@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductApiService } from 'src/app/services/product-api.service';
-
-import { CartService } from 'src/app/services/cart.service';
+import { OrderService } from 'src/app/services/order.service';
 import { Router } from '@angular/router';
-import { CartProduct } from 'src/app/models/cartProduct';
+import { OrderProduct } from 'src/app/models/orderProduct';
 
 @Component({
   selector: 'app-order',
@@ -12,28 +10,24 @@ import { CartProduct } from 'src/app/models/cartProduct';
 })
 export class OrderComponent implements OnInit {
 
-  cartProducts: CartProduct[] = [];
+  orderProducts: OrderProduct[] = [];
   total:number = 0;
   shipping:number = 3;
   grandTotal:number;
-  totalAddedQuanty:number = 0;
  
 
-
   constructor(private router:Router,
-              private cartService: CartService,
-              private productApi: ProductApiService) { }
+              private orderService: OrderService,
+             ) { }
 
   ngOnInit(): void {
-      this.cartService.getCartProducts().subscribe( (cartProducts)=>{
-        this.cartProducts = cartProducts;
-        for(let cp of this.cartProducts){
-            this.total += +cp.subtotal;
-            this.grandTotal += +cp.subtotal;
-            this.totalAddedQuanty += +cp.quantity;
+      this.orderService.getOrderProducts().subscribe( (orderProducts)=>{
+        this.orderProducts = orderProducts;
+        for(let op of this.orderProducts){
+            this.total += +op.subtotal;
+            this.grandTotal += +op.subtotal;
         }
-      } )
+      })
       this.grandTotal = this.total + this.shipping;  
   }
-
 }

@@ -9,21 +9,12 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class OrderConfirmationComponent implements OnInit {
 
-  totalAddedQuanty:number;
-  cartProducts: CartProduct[];
+ 
 
-
-  constructor(private cartSercice:CartService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.cartSercice.getCartProducts().subscribe(  (cartProducts)=>{
-      this.cartProducts = cartProducts;
-      let totalQ: number = 0;
-      for(let cp of this.cartProducts){
-          totalQ += cp.quantity;
-      }
-      this.totalAddedQuanty = totalQ;    
-    })
+  
   }
 
 }

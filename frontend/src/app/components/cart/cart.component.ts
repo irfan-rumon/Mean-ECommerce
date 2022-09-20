@@ -109,7 +109,7 @@ export class CartComponent implements OnInit {
             } );
           }
       }
-      this.router.navigate(['/myorder']);
+      this.router.navigate(['/order-confirmation']);
 
    }
  
