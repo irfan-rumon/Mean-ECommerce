@@ -27,11 +27,12 @@ export class LoginComponent implements OnInit {
     this.failedLogin = false;
   }
 
-  isAuthenticatedUser(user:User){
+  isAuthenticatedUser(){
      let isFound:boolean = false;
      for(let regUser of this.registeredUsers){
-       if( user.userName == regUser.userName && user.password == regUser.password){
+       if( this.user.userName == regUser.userName && this.user.password == regUser.password){
            isFound = true;
+           this.user.id = regUser.id;
            break;
        }
      }
@@ -40,13 +41,14 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit(){
-    //console.log(this.user);
     if( this.user.userName == "admin" && this.user.password == "admin123" ){
         localStorage.setItem('token', this.adminToken);
         this.router.navigate(['/admin']);
         return;
     }
-    if(  this.isAuthenticatedUser(  this.user )  ){
+    if(  this.isAuthenticatedUser(   )  ){
+      localStorage.setItem('user-id', String(this.user.id));
+
         localStorage.setItem('token', this.userToken);
         this.router.navigate(['/home']);
         return;

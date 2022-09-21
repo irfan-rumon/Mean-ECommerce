@@ -16,6 +16,7 @@ import { OrderProduct } from 'src/app/models/orderProduct';
 export class CartComponent implements OnInit {
 
 
+  tempCartProducts: CartProduct[] = [];
   cartProducts: CartProduct[] = [];
   total:number = 0;
   shipping:number = 3;
@@ -31,7 +32,11 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
       this.cartService.getCartProducts().subscribe( (cartProducts)=>{
-        this.cartProducts = cartProducts;
+        this.tempCartProducts = cartProducts;
+        for(let cp of this.tempCartProducts){
+            if( cp.userID == Number(localStorage.getItem('user-id')) )
+               this.cartProducts.push(cp);
+        }
         for(let cp of this.cartProducts){
             this.total += +cp.subtotal;
             this.grandTotal += +cp.subtotal;
@@ -89,7 +94,7 @@ export class CartComponent implements OnInit {
    onCheckout(){
       //this.router.navigate(['/order-confirmation']);
       for(let cp of this.cartProducts){
-          if( cp.userID == 1){
+          if( String(cp.userID) == localStorage.getItem('user-id')){
             let orderProduct:OrderProduct = {
                id:+cp.id,
                userID: +cp.userID,

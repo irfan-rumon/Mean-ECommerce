@@ -10,6 +10,7 @@ import { OrderProduct } from 'src/app/models/orderProduct';
 })
 export class OrderComponent implements OnInit {
 
+  tempOrderProducts: OrderProduct[] = [];
   orderProducts: OrderProduct[] = [];
   total:number = 0;
   shipping:number = 3;
@@ -22,7 +23,11 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
       this.orderService.getOrderProducts().subscribe( (orderProducts)=>{
-        this.orderProducts = orderProducts;
+        this.tempOrderProducts = orderProducts;
+        for(let op of this.tempOrderProducts)
+            if( op.userID == Number( localStorage.getItem('user-id') ))
+                this.orderProducts.push(op);
+        
         for(let op of this.orderProducts){
             this.total += +op.subtotal;
             this.grandTotal += +op.subtotal;
