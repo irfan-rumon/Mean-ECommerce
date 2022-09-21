@@ -17,8 +17,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { OrderComponent } from './components/order/order.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { AdminProductComponent } from './components/admin-product/admin-product.component';
-import { AddProductComponent } from './components/add-product/add-product.component';
+
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 
@@ -39,8 +38,7 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
     RegisterComponent,
     CartComponent,
     OrderComponent,
-    AdminProductComponent,
-    AddProductComponent,
+
     EditProductComponent,
     OrderConfirmationComponent,
    

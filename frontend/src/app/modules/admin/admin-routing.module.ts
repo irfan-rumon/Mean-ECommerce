@@ -1,15 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddProductComponent } from 'src/app/components/add-product/add-product.component';
-import { AdminDashboardComponent } from 'src/app/components/admin-dashboard/admin-dashboard.component';
+
+import { AddProductsComponent } from './add-products/add-products.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminProductsComponent } from './admin-products/admin-products.component';
+import { EditProductComponent} from './edit-product/edit-product.component';
+
 
 const routes: Routes = [
-    {path: '', component:AddProductComponent},
    
-    {path: 'products/add', component: AddProductComponent}
-   
-];
+    //canActivate: [AuthGuard],
+      {path : '', component: AdminDashboardComponent},
+      { path: 'products', component: AdminProductsComponent},
+      { path: 'products/add', component: AddProductsComponent},
+      { path: 'products/:id/edit', component: EditProductComponent},
 
+];
+  
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

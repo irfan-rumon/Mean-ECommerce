@@ -34,13 +34,13 @@ export class ProductApiService {
     return this.http.post<Product>(this.apiUrl, Product, httpOptions);
   }
 
-  editProduct(ProductId: any, Product:Product): Observable<Product> {
-    const url = `${this.apiUrl}/${ProductId}`;
-    return this.http.put<Product>(url, Product, httpOptions);
+  editProduct( product:Product): Observable<Product> {
+    const url = `${this.apiUrl}/${product.id}`;
+    return this.http.put<Product>(url, product, httpOptions);
   }
 
-  deleteProduct(Product: Product): Observable<Product> {
-    const url = `${this.apiUrl}/${Product.id}`;
+  deleteProduct(product: Product): Observable<Product> {
+    const url = `${this.apiUrl}/${product.id}`;
     return this.http.delete<Product>(url);
   }
 }

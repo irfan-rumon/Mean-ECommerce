@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ProductApiService } from 'src/app/services/product-api.service';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  selector: 'app-add-products',
+  templateUrl: './add-products.component.html',
+  styleUrls: ['./add-products.component.css']
 })
-export class AddProductComponent implements OnInit {
+export class AddProductsComponent implements OnInit {
 
   product: Product = {} as Product;
 
-  constructor(private productApi: ProductApiService, private router:Router) { }
+  constructor(private productApi:ProductApiService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -24,5 +24,4 @@ export class AddProductComponent implements OnInit {
     } );
    
   }
-
 }
