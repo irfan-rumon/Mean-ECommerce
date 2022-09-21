@@ -18,7 +18,12 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
-     console.log(this.user);
+     //console.log(this.user);
+     this.userApi.addUser(this.user).subscribe();
+     alert('Registration Successfull!');
+     this.router.navigate(['/login']);
+    
+
   }
 
 

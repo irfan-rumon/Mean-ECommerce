@@ -26,7 +26,9 @@
        <img style="height: 2rem; width: 3rem;"src="https://cdn.imgbin.com/3/2/13/imgbin-shopify-e-commerce-logo-business-business-MaHnPPk5U9ze4dtcFspZmL04h.jpg" alt="" srcset="">
     </a>
 
-    <a routerLink="/">  <i style="font-size: 2rem;" class="bi bi-house-fill"></i>   </a>
+    <a routerLink="/home">  <i style="font-size: 2rem;" class="bi bi-house-fill"></i>   </a>
+
+   
 
     <ul class="navbar-nav ml-auto d-block d-md-none">
       
@@ -51,7 +53,9 @@
           <a routerLink="/myorder">  <i style="font-size: 2rem;" class="bi bi-bag-fill"></i>   </a> 
         </li>
 
-        <li class="nav-item ml-md-3">
+        <li class="nav-item ml-md-3" style="margin-left: 1rem;">
+          <i style="font-size: 2rem;margin-top: 0.9rem; cursor: pointer; color: rgb(13, 119, 211);"
+             class="fa fa-sign-out" aria-hidden="true" (click)="onLogOut()"></i>
          
         </li>
 

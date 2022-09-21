@@ -38,6 +38,12 @@ export class NavbarComponent implements OnInit {
      
   }
 
+  onLogOut(){
+      localStorage.removeItem('token');
+      this.router.navigate(['/login']);
+  }
+
+
   reloadComponent() { //for reloading the current component
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';

@@ -144,7 +144,26 @@
     }
   ],
   "cart-products": [],
-  "users":[],
+  "users": [
+    {
+      "fullName": "Erfan",
+      "userName": "iru",
+      "email": "ASM.Erfan@brainstation-23.com",
+      "address": "Mirpur",
+      "phone": 1738238640,
+      "password": "abc123",
+      "id": 1
+    },
+    {
+      "fullName": "Nisho",
+      "userName": "nisho",
+      "email": "irfannisho12@gmail.com",
+      "address": "Mirpur-6",
+      "phone": 1873245955,
+      "password": "abc123",
+      "id": 2
+    }
+  ],
   "order-products": [
     {
       "id": 11,

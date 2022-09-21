@@ -8,7 +8,7 @@
             class="img-fluid" alt="Sample image">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <form>
+          <form (ngSubmit)="onSubmit()" #logForm = "ngForm">
             <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
               <h3 style="margin-left: 10rem;margin-bottom:2rem;color: rgb(78, 78, 122);">SIGN IN</h3>
               
@@ -18,31 +18,45 @@
              
             <!-- Email input -->
             <div class="form-outline mb-4">
-              <input type="email" id="form3Example3" class="form-control form-control-lg"
-                placeholder="Enter Username" />
+              <input type="text"  class="form-control form-control-lg"
+                placeholder="Enter Username" [(ngModel)]="user.userName" name="username" #username="ngModel"  required/>
              
+                <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                   class="alert">
+
+                  <div *ngIf="username.errors?.['required']" style="color:red;margin-bottom: 0.5rem;">
+                    *User Name is required.
+                  </div>
+             
+                </div>
+
+
             </div>
   
             <!-- Password input -->
             <div class="form-outline mb-3">
               <input type="password" id="form3Example4" class="form-control form-control-lg"
-                placeholder="Enter password" />
+                placeholder="Enter password" [(ngModel)]="user.password" name="password" #pass="ngModel"  required />
              
-            </div>
-  
-            <div class="d-flex justify-content-between align-items-center">
-              <!-- Checkbox -->
-              <div class="form-check mb-0">
-                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                <label class="form-check-label" for="form2Example3">
-                  Remember me
-                </label>
-              </div>
+                <div *ngIf="pass.invalid && (pass.dirty || pass.touched)"
+                   class="alert">
+
+                  <div *ngIf="pass.errors?.['required']" style="color:red;margin-bottom: 0.5rem;">
+                    *Password is required.
+                  </div>
              
-            </div>
+                  </div>
+
+
+               </div>
   
+    
+              <div class="mb-2" *ngIf="failedLogin" class="alert-danger" style="color: red;">
+                    <p>Wrong credentials. Please try again</p> 
+              </div>	
+
             <div class="text-center text-lg-start mt-4 pt-2">
-              <button type="button" class="btn btn-primary btn-lg"
+              <button type="submit" class="btn btn-primary btn-lg"  [disabled]="!logForm.valid"
                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
               <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? 
                 <a [routerLink] = "['/register']"
