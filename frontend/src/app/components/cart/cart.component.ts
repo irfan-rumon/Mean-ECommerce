@@ -6,7 +6,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
 import { CartProduct } from 'src/app/models/cartProduct';
 import { OrderProduct } from 'src/app/models/orderProduct';
-
+import { Card } from 'src/app/models/card';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +15,7 @@ import { OrderProduct } from 'src/app/models/orderProduct';
 })
 export class CartComponent implements OnInit {
 
-
+  card: Card = {} as Card;
   tempCartProducts: CartProduct[] = [];
   cartProducts: CartProduct[] = [];
   total:number = 0;
@@ -44,6 +44,10 @@ export class CartComponent implements OnInit {
         }
       } )
       this.grandTotal = this.total + this.shipping;  
+  }
+
+  onSubmit(){
+    console.log("Heyy");
   }
 
   addQuantity(cartProduct:CartProduct){
