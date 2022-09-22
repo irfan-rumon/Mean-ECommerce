@@ -24,7 +24,7 @@
   "products": [
     {
       "id": "1",
-      "catagoryID": "1",
+      "catagory": "Cloth",
       "name": "Shirt",
       "brand": "Polo",
       "unitPrice": "100",
@@ -34,7 +34,7 @@
     },
     {
       "id": "2",
-      "catagoryID": "1",
+      "catagory": "Cloth",
       "name": "Sports Shoes",
       "brand": "Bata",
       "unitPrice": "500",
@@ -44,7 +44,7 @@
     },
     {
       "id": "3",
-      "catagoryID": "1",
+      "catagory": "Cloth",
       "name": "Jeans",
       "brand": "Levis",
       "unitPrice": "800",
@@ -54,7 +54,7 @@
     },
     {
       "id": "4",
-      "catagoryID": "2",
+      "catagory": "Smartphone",
       "name": "Iphone",
       "brand": "Apple",
       "unitPrice": "8000",
@@ -64,7 +64,7 @@
     },
     {
       "id": "5",
-      "catagoryID": "2",
+      "catagory": "Smartphone",
       "name": "Redmi",
       "brand": "Xiami",
       "unitPrice": "7000",
@@ -74,7 +74,7 @@
     },
     {
       "id": "6",
-      "catagoryID": "2",
+      "catagory": "Smartphone",
       "name": "Galaxy7",
       "brand": "Samsung",
       "unitPrice": "9000",
@@ -84,7 +84,7 @@
     },
     {
       "id": "7",
-      "catagoryID": "3",
+      "catagory": "Watch",
       "name": "Casio MT_-1500",
       "brand": "Casio",
       "unitPrice": "4000",
@@ -94,7 +94,7 @@
     },
     {
       "id": "8",
-      "catagoryID": "3",
+      "catagory": "Watch",
       "name": "Waterburry Classic",
       "brand": "Timex",
       "unitPrice": "3000",
@@ -104,7 +104,7 @@
     },
     {
       "id": "9",
-      "catagoryID": "3",
+      "catagory": "Watch",
       "name": "Prospex Speedtomer",
       "brand": "Seiko",
       "unitPrice": "2500",
@@ -114,7 +114,7 @@
     },
     {
       "id": "10",
-      "catagoryID": "4",
+      "catagory": "Perfume",
       "name": "Gucci Diana",
       "brand": "Gucci",
       "unitPrice": "2000",
@@ -124,7 +124,7 @@
     },
     {
       "id": "11",
-      "catagoryID": "4",
+      "catagory": "Perfume",
       "name": "Chanel N5",
       "brand": "Chanel",
       "unitPrice": "1500",
@@ -134,57 +134,172 @@
     },
     {
       "id": "12",
-      "catagoryID": "4",
+      "catagory": "Perfume",
       "name": "Red Diamond",
       "brand": "Versace",
       "unitPrice": "1400",
       "quantity": "4",
       "imageURL": "https://images.unsplash.com/photo-1608528577891-eb055944f2e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
       "isTrending": false
+    },
+    {
+      "name": "T-Shirt-TT",
+      "catagory": "Cloth",
+      "brand": "Polo",
+      "unitPrice": "100",
+      "quantity": "6",
+      "imageURL": "https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      "id": "p7oF1Yh"
     }
   ],
   "cart-products": [
     {
-      "id": "11",
+      "id": "p7oF1Yh",
       "userID": 1,
-      "brand": "Chanel",
-      "name": "Chanel N5",
-      "imageURL": "https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hhbmVsJTIwcGVyZnVtZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-      "unitPrice": "1500",
-      "quantity": 1,
-      "subtotal": "1500"
+      "brand": "Polo",
+      "name": "T-Shirt-TT",
+      "imageURL": "https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      "unitPrice": "100",
+      "quantity": 3,
+      "subtotal": 300
     }
   ],
   "users": [
     {
-      "fullName": "Irfan",
-      "userName": "iru",
-      "email": "irfannisho12@gmail.com",
+      "userName": "rumon",
+      "password": "abc123",
+      "fullName": "A S M ERFAN",
+      "email": "ASM.Erfan@brainstation-23.com",
       "address": "Mirpur-6",
       "phone": 1738238640,
-      "password": "abc123",
       "id": 1
     },
     {
-      "fullName": "Asma",
       "userName": "asu",
-      "email": "asma@gmail.com",
-      "address": "Mirpur-6",
-      "phone": 155555555,
-      "password": "abc123",
+      "password": "asu",
+      "fullName": "Asma",
+      "email": "irfannisho12@gmail.com",
+      "address": "Mirput",
+      "phone": 457567,
       "id": 2
+    }
+  ],
+  "orders": [
+    {
+      "userId": 1,
+      "quantity": 1,
+      "total": 7003,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "quantity": 1,
+      "total": 7003,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "quantity": 1,
+      "total": 7003,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "quantity": 2,
+      "total": 7103,
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "quantity": 0,
+      "total": 3,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "quantity": 2,
+      "total": 7103,
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "quantity": 3,
+      "total": 7203,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "quantity": 4,
+      "total": 7303,
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "quantity": 6,
+      "total": 7503,
+      "id": 9
     }
   ],
   "order-products": [
     {
-      "id": 11,
+      "id": 5,
       "userID": 1,
-      "imageURL": "https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hhbmVsJTIwcGVyZnVtZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-      "name": "Chanel N5",
-      "unitPrice": 1500,
+      "imageURL": "https://images.unsplash.com/photo-1581003989510-ba20094d343c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=432&q=80",
+      "name": "Redmi",
+      "unitPrice": 7000,
       "quantity": 1,
-      "brand": "Chanel",
-      "subtotal": 1500
+      "brand": "Xiami",
+      "subtotal": 7000
+    },
+    {
+      "id": 6,
+      "userID": 1,
+      "imageURL": "https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      "name": "T-Shirt-TT",
+      "unitPrice": 100,
+      "quantity": 1,
+      "brand": "Polo",
+      "subtotal": 100
+    },
+    {
+      "id": 7,
+      "userID": 1,
+      "imageURL": "https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      "name": "T-Shirt-TT",
+      "unitPrice": 100,
+      "quantity": 1,
+      "brand": "Polo",
+      "subtotal": 100
+    },
+    {
+      "id": 8,
+      "userID": 1,
+      "imageURL": "https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      "name": "T-Shirt-TT",
+      "unitPrice": 100,
+      "quantity": 1,
+      "brand": "Polo",
+      "subtotal": 100
+    },
+    {
+      "id": 9,
+      "userID": 1,
+      "imageURL": "https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      "name": "T-Shirt-TT",
+      "unitPrice": 100,
+      "quantity": 2,
+      "brand": "Polo",
+      "subtotal": 200
+    },
+    {
+      "id": 10,
+      "userID": 1,
+      "imageURL": "https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      "name": "T-Shirt-TT",
+      "unitPrice": 100,
+      "quantity": 3,
+      "brand": "Polo",
+      "subtotal": 300
     }
   ]
 }

@@ -6,6 +6,7 @@ import { SearchService } from 'src/app/services/search.service';
 import { ProductApiService } from 'src/app/services/product-api.service';
 import { CatagoryApiService } from 'src/app/services/catagory-api.service';
 import { CartService } from 'src/app/services/cart.service';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -17,6 +18,7 @@ export class NavbarComponent implements OnInit {
   catagories: Catagory[] = [];
   inputVal: string;
   @Input() totalAddedQuantity: number;
+  totalQ: number = 0;
 
 
   constructor(
@@ -30,10 +32,12 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
       this.productApi.getProducts().subscribe( (products)=>{
         this.products = products;
+        
       } )
       this.catagoryApi.getCatagories().subscribe( (cats)=>{
         this.catagories = cats;
      } )
+    
    
      
   }
@@ -51,7 +55,8 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/display']);
   }
 
-  onSubmit(){
+  onSearch(){
+    console.log("Typed: ", this.inputVal);
    
     let searchedProducts:Product[] = [];
 
@@ -60,15 +65,17 @@ export class NavbarComponent implements OnInit {
   
     //catagory wise search logic if applicable
     for(let cat of this.catagories){
+       console.log("Inside cat");
         if( cat.name.includes(seachItem)){
             for(let pr of this.products){
-               if(pr.catagoryID == cat.id)searchedProducts.push(pr);
+               if(pr.catagory == cat.name)searchedProducts.push(pr);
             }
         }
     }
 
     //product name wise search logic if applicable
     for(let pr of this.products){
+      console.log("Inside pr");
       if(pr.name.includes(seachItem) && !searchedProducts.includes(pr)){
         searchedProducts.push(pr);
       }
@@ -76,6 +83,7 @@ export class NavbarComponent implements OnInit {
 
     //brand name wise search logic if applicable
     for(let pr of this.products){
+      console.log("Inside name");
       if(pr.brand.includes(seachItem) && !searchedProducts.includes(pr)){
         searchedProducts.push(pr);
       }

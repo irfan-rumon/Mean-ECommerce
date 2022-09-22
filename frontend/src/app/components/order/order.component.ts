@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/app/services/order.service';
 import { Router } from '@angular/router';
 import { OrderProduct } from 'src/app/models/orderProduct';
-
+import { Order } from 'src/app/models/order';
+import { OrderApiService } from 'src/app/services/order-api.service';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -15,10 +16,12 @@ export class OrderComponent implements OnInit {
   total:number = 0;
   shipping:number = 3;
   grandTotal:number;
+  totalQuantity:number = 0;
  
 
   constructor(private router:Router,
               private orderService: OrderService,
+              private adminOrderApi: OrderApiService
              ) { }
 
   ngOnInit(): void {
@@ -31,8 +34,16 @@ export class OrderComponent implements OnInit {
         for(let op of this.orderProducts){
             this.total += +op.subtotal;
             this.grandTotal += +op.subtotal;
+            this.totalQuantity += +op.quantity;
         }
+        this.grandTotal = this.total + this.shipping;  
+        let newOrder:Order = {
+          userId: Number(localStorage.getItem('user-id')),
+          quantity: this.totalQuantity,
+          total: this.grandTotal
+        }
+        this.adminOrderApi.addOrder(newOrder).subscribe();
       })
-      this.grandTotal = this.total + this.shipping;  
+     
   }
 }

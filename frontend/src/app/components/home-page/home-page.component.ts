@@ -55,10 +55,10 @@ export class HomePageComponent implements OnInit {
     this.totalAddedQuanty++;
   }
 
-  onCatClick(catID: number){
+  onCatClick(cat: Catagory){
     let  searchedProducts: Product[] = [];
     for (let pr of this.products){
-       if( pr.catagoryID == catID){
+       if( pr.catagory == cat.name){
           searchedProducts.push(pr);
        }
     }

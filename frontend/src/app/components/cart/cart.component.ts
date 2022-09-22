@@ -112,7 +112,7 @@ export class CartComponent implements OnInit {
             this.orderService.addOrderProduct(orderProduct).subscribe();
             this.cartService.deleteCartProduct(+cp.id).subscribe(  ()=>{
               const indexOfObject = this.cartProducts.findIndex((object) => {
-                return object === cp;
+                return object.id == cp.id && object.userID == Number(localStorage.getItem('user-id'));
               });  
               this.cartProducts.splice(indexOfObject, 1);//internal array theke delete
             } );

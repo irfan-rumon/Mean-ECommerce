@@ -3,11 +3,17 @@
 <div  class="container">  
     <form id="contact" action="" method="post" (ngSubmit)="onSubmit()" >
       <h2 style="margin-left: 27%;">Add a New Product:</h2>
-      <fieldset>
-        <input placeholder="Product ID" type="text" tabindex="3"  name="id" [(ngModel)]="product.id" required autofocus>
-      </fieldset>
+     
       <fieldset>
         <input placeholder="Product Name" type="text" tabindex="3"  name="name" [(ngModel)]="product.name" required>
+      </fieldset>
+
+      <fieldset>
+        <input placeholder="Product Catagory" type="text" tabindex="3"  name="catagory" [(ngModel)]="product.catagory" required autofocus>
+      </fieldset>
+
+      <fieldset>
+        <input placeholder="Product Brand" type="text" tabindex="3"  name="brand" [(ngModel)]="product.brand" required autofocus>
       </fieldset>
      
       <fieldset>

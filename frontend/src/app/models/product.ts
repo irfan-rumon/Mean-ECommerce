@@ -4,7 +4,7 @@ export interface Product {
     name: string;
     unitPrice : number;
     quantity: number;
-    catagoryID: number;
+    catagory: string;
     brand: string;
     isTrending: boolean;
   }

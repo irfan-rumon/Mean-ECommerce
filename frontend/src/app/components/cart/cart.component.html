@@ -123,10 +123,8 @@
                         </div>
                     </div>
                 
-                    <button type="submit" class="btn btn-primary btn-lg"  [disabled]="!cardForm.valid"
-                style="padding-left: 2.5rem; padding-right: 2.5rem;margin-left: 12rem;margin-top: 2rem;
-                
-                ">Checkout</button>
+                    <button type="submit" (click)=" onCheckout()"class="btn btn-primary btn-lg"  [disabled]="!cardForm.valid"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;margin-left: 12rem;margin-top: 2rem;">Checkout</button>
                     
                 </form>
                 <div class="col-lg-4 mt-2">
