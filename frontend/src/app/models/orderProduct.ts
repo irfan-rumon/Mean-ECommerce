@@ -1,5 +1,6 @@
 export interface OrderProduct {
-    id: number; //basically product.id === this.id
+    id?: number;
+    productID: number;
     userID: number;
     imageURL: string;
     name: string;

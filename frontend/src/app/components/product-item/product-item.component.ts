@@ -28,18 +28,20 @@ export class ProductItemComponent implements OnInit {
       this.onAddCart.emit(product); //parent componentke inform kora
 
       for(let cp  of this.cartProducts){
-        if(cp.id == product.id){ //already exist,
+        if(cp.productID == product.id && cp.userID == Number(localStorage.getItem('user-id'))){ //already exist,
             cp.quantity++;
             cp.subtotal = +cp.unitPrice  + +cp.subtotal;  
-            this.cartService.editCartProduct(product.id, cp).subscribe(); 
+            this.cartService.editCartProduct(cp.id, cp).subscribe(); 
             return; 
         }
       }
       let newCartProduct = {} as CartProduct;
-      newCartProduct.id = product.id; newCartProduct.userID = Number(localStorage.getItem('user-id')); newCartProduct.brand=product.brand;
+     
+      newCartProduct.userID = Number(localStorage.getItem('user-id')); newCartProduct.brand=product.brand;
       newCartProduct.name=product.name;  newCartProduct.imageURL=product.imageURL;
       newCartProduct.unitPrice=product.unitPrice; newCartProduct.quantity=1;
       newCartProduct.subtotal=product.unitPrice;
+      newCartProduct.productID = Number(product.id);
 
       this.cartService.addCartProduct( newCartProduct  ).subscribe();
       this.cartProducts.push(newCartProduct);

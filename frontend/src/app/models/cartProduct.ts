@@ -1,5 +1,6 @@
 export interface CartProduct {
-    id: number; //basically product.id === this.id
+    id?: number; 
+    productID: number;
     userID: number;
     imageURL: string;
     name: string;

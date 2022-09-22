@@ -1,9 +1,13 @@
 
 <app-admin-navbar></app-admin-navbar>
 <div  class="container">  
-    <form id="contact" action="" method="post" (ngSubmit)="onSubmit()" >
+    <form id="contact"  (ngSubmit)="onSubmit()" >
       <h2 style="margin-left: 27%;">Add a New Product:</h2>
      
+
+      <fieldset>
+        <input placeholder="Product ID" type="text" tabindex="3"  name="id" [(ngModel)]="product.id"  required>
+      </fieldset>
       <fieldset>
         <input placeholder="Product Name" type="text" tabindex="3"  name="name" [(ngModel)]="product.name" required>
       </fieldset>
@@ -26,7 +30,7 @@
         <input placeholder="Product image-url" type="text" tabindex="3"  name="imageURL" [(ngModel)]="product.imageURL"  required>
       </fieldset>
       <fieldset>
-        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+        <button name="add-product-btn" type="submit"data-submit="...Sending">Submit</button>
       </fieldset>
       
     </form>

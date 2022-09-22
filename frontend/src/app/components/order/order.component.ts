@@ -37,12 +37,7 @@ export class OrderComponent implements OnInit {
             this.totalQuantity += +op.quantity;
         }
         this.grandTotal = this.total + this.shipping;  
-        let newOrder:Order = {
-          userId: Number(localStorage.getItem('user-id')),
-          quantity: this.totalQuantity,
-          total: this.grandTotal
-        }
-        this.adminOrderApi.addOrder(newOrder).subscribe();
+       
       })
      
   }

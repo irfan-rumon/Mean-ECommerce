@@ -33,8 +33,8 @@ export class CartService {
     return this.http.put<CartProduct>(url, cp, httpOptions);
   }
 
-  deleteCartProduct(id: any): Observable<CartProduct> {
-    const url = `${this.apiUrl}/${id}`;
+  deleteCartProduct(cp:CartProduct): Observable<CartProduct> {
+    const url = `${this.apiUrl}/${cp.id}`;
     return this.http.delete<CartProduct>(url);
   }
 

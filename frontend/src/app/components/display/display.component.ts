@@ -28,7 +28,7 @@ export class DisplayComponent implements OnInit {
         this.cartProducts = cartProducts;
         let totalQ: number = 0;
         for(let cp of this.cartProducts){
-            totalQ += cp.quantity;
+            totalQ += +cp.quantity;
         }
         this.totalAddedQuanty = totalQ;    
   })

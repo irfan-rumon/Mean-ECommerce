@@ -88,7 +88,7 @@ export class CartComponent implements OnInit {
       this.grandTotal -= +cartProduct.subtotal;
       this.totalAddedQuanty -= +cartProduct.quantity;
 
-      this.cartService.deleteCartProduct(cartProduct.id).subscribe(); //external server theke delete
+      this.cartService.deleteCartProduct(cartProduct).subscribe(); //external server theke delete
       const indexOfObject = this.cartProducts.findIndex((object) => {
         return object === cartProduct;
       });  
@@ -98,9 +98,9 @@ export class CartComponent implements OnInit {
    onCheckout(){
       //this.router.navigate(['/order-confirmation']);
       for(let cp of this.cartProducts){
-          if( String(cp.userID) == localStorage.getItem('user-id')){
+         
             let orderProduct:OrderProduct = {
-               id:+cp.id,
+               productID: +cp.productID, 
                userID: +cp.userID,
                imageURL: cp.imageURL,
                name: cp.name,
@@ -109,14 +109,17 @@ export class CartComponent implements OnInit {
                brand: cp.brand,
                subtotal: +cp.subtotal
             }
-            this.orderService.addOrderProduct(orderProduct).subscribe();
-            this.cartService.deleteCartProduct(+cp.id).subscribe(  ()=>{
-              const indexOfObject = this.cartProducts.findIndex((object) => {
-                return object.id == cp.id && object.userID == Number(localStorage.getItem('user-id'));
-              });  
-              this.cartProducts.splice(indexOfObject, 1);//internal array theke delete
-            } );
-          }
+            this.orderService.addOrderProduct(orderProduct).subscribe(  (res)=>{
+
+              this.cartService.deleteCartProduct(cp).subscribe(  ()=>{
+                const indexOfObject = this.cartProducts.findIndex((object) => {
+                  return object === cp;
+                });  
+                this.cartProducts.splice(indexOfObject, 1);//internal array theke delete
+              } );
+            });
+           
+
       }
       this.router.navigate(['/order-confirmation']);
 

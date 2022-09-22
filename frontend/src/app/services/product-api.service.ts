@@ -30,8 +30,8 @@ export class ProductApiService {
     return this.http.get<Product>(url);
   }
 
-  addProduct(Product: Product): Observable<Product> {
-    return this.http.post<Product>(this.apiUrl, Product, httpOptions);
+  addProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.apiUrl, product, httpOptions);
   }
 
   editProduct( product:Product): Observable<Product> {
