@@ -46,7 +46,7 @@ export class CartComponent implements OnInit {
       this.grandTotal = this.total + this.shipping;  
   }
 
-  onSubmit(){
+  onCardSubmit(){
     console.log("Heyy");
   }
 
