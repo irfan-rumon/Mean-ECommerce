@@ -1,0 +1,65 @@
+<app-admin-navbar></app-admin-navbar>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+
+<div style="margin-top: 2rem; width: 100%;">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div  class="col-lg-8"><h2> Order List</h2></div>
+                    
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th> Order ID</th>
+                        <th> User ID</th>
+                        
+                        <th>User Address</th>
+                        <th> User Phone </th>    
+                        <th>Product Quantity</th>
+                        <th>Total Bill</th>
+
+                    </tr>
+                </thead>
+                <tbody *ngFor="let or of orders">
+                    <tr>
+                        <td>{{ or.id}}</td>
+                        <td>{{ or.userId }}</td>
+                       
+                        <td>{{ or.userAddress }}</td>
+                        <td>{{ or.userPhone }}</td>
+                        <td>{{ or.quantity }}    </td>
+                        <td>{{ or.total }}    </td>
+                        <td style="width: 300px;">
+                           
+                            
+                            <a class="delete clickable" (click)="onDelete(or)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                          
+                          
+                        </td>
+                    </tr>
+                                  
+                </tbody>
+            </table>
+        
+        </div>
+    </div>    
+</div>  
+
+<app-admin-footer></app-admin-footer>
+

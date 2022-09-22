@@ -22,6 +22,7 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
 
     EditProductComponent,
     OrderConfirmationComponent,
+   
    
     
   ],

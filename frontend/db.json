@@ -181,14 +181,6 @@
       "quantity": 3,
       "total": 13000,
       "id": 1
-    },
-    {
-      "userId": 2,
-      "userAddress": "Mirpur",
-      "userPhone": "457567",
-      "quantity": 3,
-      "total": 11800,
-      "id": 2
     }
   ],
   "order-products": [
