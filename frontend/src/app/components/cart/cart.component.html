@@ -84,7 +84,7 @@
                 <div class="col-lg-3 radio-group" >
                     
                 </div>
-                <div class="col-lg-5">
+                <form class="col-lg-5">
                     <div class="row px-2">
                         <div class="form-group col-md-6">
                             <label class="form-control-label header">Name on Card</label>
@@ -95,11 +95,17 @@
                             <input type="text" id="cnum" name="cnum" placeholder="1111 2222 3333 4444">
                         </div>
                     </div>
+                    <button type="submit" style="margin-left: 15rem;"class="btn-block btn-blue" (click)="onCheckout()">
+                        <span>
+                            <span id="checkout">Checkout</span>
+                           
+                        </span>
+                    </button>
                     <div class="row px-2">
                         
                         
                     </div>
-                </div>
+                </form>
                 <div class="col-lg-4 mt-2">
                     <div class="row d-flex justify-content-between px-4">
                         <p class="mb-1 text-left">Total</p>
@@ -113,12 +119,7 @@
                         <p class="mb-1 text-left">Grand Total (tax included)</p>
                         <h6 class="mb-1 text-right">${{grandTotal}}</h6>
                     </div>
-                    <button class="btn-block btn-blue" (click)="onCheckout()">
-                        <span>
-                            <span id="checkout">Checkout</span>
-                           
-                        </span>
-                    </button>
+                   
                 </div>
             </div>
         </div>
