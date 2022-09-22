@@ -10,6 +10,7 @@ import { AdminOrderComponent } from './admin-order/admin-order.component';
 import { FormsModule } from '@angular/forms';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 
 
@@ -22,7 +23,8 @@ import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
     AddProductsComponent,
     EditProductComponent,
     AdminNavbarComponent,
-    AdminOrderComponent
+    AdminOrderComponent,
+    UserListComponent
    
    
    

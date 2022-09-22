@@ -6,7 +6,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdminOrderComponent } from './admin-order/admin-order.component';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
 import { EditProductComponent} from './edit-product/edit-product.component';
-
+import { UserListComponent } from './user-list/user-list.component';
 
 const routes: Routes = [
    
@@ -16,6 +16,7 @@ const routes: Routes = [
       { path: 'products/add', component: AddProductsComponent},
       { path: 'products/:id/edit', component: EditProductComponent},
       { path: 'orders', component: AdminOrderComponent},
+      { path: 'customers', component: UserListComponent},
 
 ];
   
