@@ -152,7 +152,30 @@
       "imageURL": "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
     }
   ],
-  "cart-products": [],
+  "cart-products": [
+    {
+      "userID": 1,
+      "brand": "Versace",
+      "name": "Red Diamond",
+      "imageURL": "https://images.unsplash.com/photo-1608528577891-eb055944f2e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      "unitPrice": "1400",
+      "quantity": 1,
+      "subtotal": "1400",
+      "productID": 12,
+      "id": 1
+    },
+    {
+      "userID": 1,
+      "brand": "Gucci",
+      "name": "Gucci Diana",
+      "imageURL": "https://images.unsplash.com/photo-1619007556336-4d99b008471e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80",
+      "unitPrice": "2000",
+      "quantity": 1,
+      "subtotal": "2000",
+      "productID": 10,
+      "id": 2
+    }
+  ],
   "users": [
     {
       "userName": "iru",
