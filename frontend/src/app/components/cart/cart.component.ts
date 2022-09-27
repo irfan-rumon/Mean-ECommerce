@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { CartProduct } from 'src/app/models/cartProduct';
 import { OrderProduct } from 'src/app/models/orderProduct';
 import { Card } from 'src/app/models/card';
+import { AuthorizationService } from 'src/app/services/authorization.service';
 
 @Component({
   selector: 'app-cart',
@@ -28,6 +29,7 @@ export class CartComponent implements OnInit {
   constructor(private router:Router,
               private cartService: CartService,
               private orderService: OrderService,
+              private auth:  AuthorizationService,
               private productApi: ProductApiService) { }
 
   ngOnInit(): void {
@@ -59,6 +61,7 @@ export class CartComponent implements OnInit {
           this.total += +cp.unitPrice;
           this.grandTotal += +cp.unitPrice;  
           this.cartService.editCartProduct(cartProduct.id, cp).subscribe(); 
+         // console.log("Akn cart", this.auth.getUser());
           return; 
       }
     }

@@ -6,6 +6,7 @@ import { SearchService } from 'src/app/services/search.service';
 import { ProductApiService } from 'src/app/services/product-api.service';
 import { CatagoryApiService } from 'src/app/services/catagory-api.service';
 import { CartService } from 'src/app/services/cart.service';
+import { AuthorizationService } from 'src/app/services/authorization.service';
 
 @Component({
   selector: 'app-navbar',
@@ -26,7 +27,8 @@ export class NavbarComponent implements OnInit {
       private searchService: SearchService,
       private productApi: ProductApiService,
       private catagoryApi: CatagoryApiService,
-      private cartService: CartService
+      private cartService: CartService,
+      private auth:AuthorizationService
   ) { }
 
   ngOnInit(): void {
@@ -42,12 +44,8 @@ export class NavbarComponent implements OnInit {
      
   }
 
-  onLogOut(){
-      localStorage.removeItem('token');
-      localStorage.removeItem('user-id');
-      localStorage.removeItem('user-address');
-      localStorage.removeItem('user-phone');
-      this.router.navigate(['/login']);
+  onLogout(){
+     this.auth.deleteToken();
   }
 
 
@@ -56,6 +54,7 @@ export class NavbarComponent implements OnInit {
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate(['/display']);
   }
+
 
   onSearch(){
     console.log("Typed: ", this.inputVal);

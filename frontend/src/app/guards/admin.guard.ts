@@ -11,15 +11,19 @@ export class AdminGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-       if( this.auth.isAdmin())
+      if( this.auth.isLoggedIn()  )
        {
-          return true;
+         console.log("Checkpoint", this.auth.getUser().roll );
+          if( this.auth.getUser().roll == "admin")
+          {
+             
+              return true;
+          }
        }
-       else{
-        console.log("ekhanee!!");
-          this.router.navigate(['/login']);
-          return false;
-       }
+        
+      this.router.navigate(['/login']);
+      this.auth.deleteToken();
+      return false;
   }
   
 }

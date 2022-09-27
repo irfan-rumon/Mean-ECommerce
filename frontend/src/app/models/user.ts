@@ -7,4 +7,6 @@ export interface User{
     address: string;
     password:string;
     passConfirm?:string;
+    roll?:string;
+
   }
