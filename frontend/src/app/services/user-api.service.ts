@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
+import { LoggerUser } from '../models/loggerUser';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,7 +15,8 @@ const httpOptions = {
 })
 export class UserApiService {
 
-  private apiUrl = 'http://localhost:3000/users';
+  private apiUrl = 'http://localhost:3030/users';
+  private loginUrl = 'http://localhost:3030/authentication';
  
 
   constructor(private http: HttpClient) {}
@@ -23,6 +25,9 @@ export class UserApiService {
     return this.http.get<User[]>(this.apiUrl);
   }
 
+  logUser(user:LoggerUser):Observable<any>{
+    return this.http.post<any>(this.loginUrl,  user, httpOptions);
+  }
 
 
   getUser(userId: any): Observable<User> {

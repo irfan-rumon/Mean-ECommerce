@@ -152,19 +152,7 @@
       "imageURL": "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
     }
   ],
-  "cart-products": [
-    {
-      "userID": 1,
-      "brand": "Apple",
-      "name": "Iphone",
-      "imageURL": "https://images.unsplash.com/photo-1591337676887-a217a6970a8a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
-      "unitPrice": "8000",
-      "quantity": 3,
-      "subtotal": 24000,
-      "productID": 4,
-      "id": 1
-    }
-  ],
+  "cart-products": [],
   "users": [
     {
       "userName": "iru",
