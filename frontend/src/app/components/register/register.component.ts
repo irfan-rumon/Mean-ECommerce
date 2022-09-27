@@ -11,6 +11,7 @@ import { UserApiService } from 'src/app/services/user-api.service';
 export class RegisterComponent implements OnInit {
 
   user:User = {} as User;
+  passNotMatched: boolean = false;
 
   constructor(private router: Router, private userApi: UserApiService) { }
 
@@ -18,6 +19,12 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
+     if( this.user.password != this.user.passConfirm)
+     {
+        this.passNotMatched = true;
+        console.log("pass mile nai");
+        return;
+     }
      //console.log(this.user);
      this.userApi.addUser(this.user).subscribe();
      alert('Registration Successfull!');

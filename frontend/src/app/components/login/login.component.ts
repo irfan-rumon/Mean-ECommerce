@@ -12,6 +12,7 @@ import { LoggerUser } from 'src/app/models/loggerUser';
 export class LoginComponent implements OnInit {
 
   user: LoggerUser = {} as LoggerUser;
+  failedLogin: boolean = false;;
   
 
   constructor(private userApi: UserApiService, private router:Router) { }
@@ -27,15 +28,19 @@ export class LoginComponent implements OnInit {
     console.log("Log Entered!!");
     this.user.strategy = "local";
    this.userApi.logUser(this.user).subscribe(   (res)=>{
-        console.log("whole response:", res);
+        /*console.log("whole response:", res);
         console.log( "token: ", res["accessToken"]);
         console.log("expiry value: ", res["authentication"]["payload"].exp);
         console.log("User Info: ", res["user"]);
         console.log("User Name: ", res["user"].fullName);
         console.log("User Address: ", res["user"].address);
         console.log("User Phone: ", res["user"].phone);
-        console.log("User Roll: ", res["user"].roll);
-   }  )
+        console.log("User Roll: ", res["user"].roll);*/
+        this.router.navigate(['/home']);
+     }, (err) => {
+        console.log("Dhikce");
+        this.failedLogin = true;
+    } );
     
   }
 

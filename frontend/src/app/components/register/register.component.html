@@ -99,31 +99,52 @@
                 </div>
 
 								  <div class="form-outline mb-3 mt-0">
-									<input type="password"  [(ngModel)]="user.password" name="password" class="form-control form-control-lg"
-									  placeholder="Enter Password" #pass="ngModel"  required/>
-                    <div *ngIf="pass.invalid && (pass.dirty || pass.touched)"
-                    class="alert">
-    
-                    <div *ngIf="pass.errors?.['required']" style="color:red;">
-                      *Password is required.
-                    </div>
+                      <input type="password"  [(ngModel)]="user.password" name="pass" class="form-control form-control-lg"
+                        placeholder="Enter Password" #pass="ngModel"  required/>
+                        <div *ngIf="pass.invalid && (pass.dirty || pass.touched)"
+                        class="alert">
+        
+                        <div *ngIf="pass.errors?.['required']" style="color:red;">
+                          *Password is required.
+                        </div>
 
-                    </div>
+                        </div>
                   
                   
-                  </div>		  	  
+                  </div>		  
+                  
+                  <div class="form-outline mb-3 mt-0">
+                    <input type="password"  [(ngModel)]="user.passConfirm" name="passConfirm" class="form-control form-control-lg"
+                      placeholder="Confirm Password" #passConfirm="ngModel"  required/>
+                      <div *ngIf="passConfirm.invalid && (passConfirm.dirty || passConfirm.touched)"
+                      class="alert">
+      
+                      <div *ngIf="passConfirm.errors?.['required']" style="color:red;">
+                        *Password is required.
+                      </div>
+
+                
+
+                      </div>
+                
+                
+                </div>		  
   
            
   
           
   
-            <div class="text-center text-lg-start mt-4 pt-2">
-              <button type="submit" [disabled]="!regForm.valid" class="btn btn-primary btn-lg"
-                style="padding-left: 2.5rem; padding-right: 2.5rem;">Create Account</button>
-              <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? 
-                <a [routerLink] = "['/login']"
-                  class="link-primary">Login</a></p>
-            </div>
+                <div class="text-center text-lg-start mt-4 pt-2">
+                  <button  *ngIf="regForm.valid && user.password == user.passConfirm" type="submit"   class="btn btn-primary btn-lg"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
+    
+                    <button  *ngIf="!regForm.valid || !(user.password == user.passConfirm)" style="color:aliceblue" [disabled]="true" class="btn btn-lg"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
+    
+                  <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? 
+                    <a [routerLink] = "['/login']"
+                      class="link-danger">Login</a></p>
+                </div>
   
           </form>
         </div>

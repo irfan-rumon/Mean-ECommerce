@@ -6,4 +6,5 @@ export interface User{
     phone: number;
     address: string;
     password:string;
+    passConfirm?:string;
   }
