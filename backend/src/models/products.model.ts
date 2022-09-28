@@ -13,10 +13,10 @@ export default function (app: Application): Model<any> {
     imageURL: { type: String },
     name: { type: String, required: true },
     catagory: { type: String, required: true },
+    brand: { type: String, required: true },
     isTrending: { type: Boolean, required: true, default: false },
     unitPrice : { type: Number, required: true },
     stockAvailable: { type: Number, required: true },
-    brand: { type: String, required: true },
   }, {
     timestamps: true
   });

@@ -1,10 +1,11 @@
 export interface Product {
-    id: number;
+    id?:number;
+    _id?:string;
     imageURL: string;
     name: string;
-    unitPrice : number;
-    quantity: number;
     catagory: string;
     brand: string;
     isTrending: boolean;
+    unitPrice : number;
+    stockAvailable: number;
   }

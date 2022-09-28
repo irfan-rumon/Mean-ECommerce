@@ -17,10 +17,10 @@ import { CartComponent } from './components/cart/cart.component';
 import { OrderComponent } from './components/order/order.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { AuthInterceptor } from './services/auth.interceptor';
+
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
-
+import { AuthInterceptor } from './services/auth.interceptor';
 
 
 @NgModule({

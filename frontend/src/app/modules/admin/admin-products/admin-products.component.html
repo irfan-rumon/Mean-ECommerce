@@ -15,11 +15,11 @@
 </head>
 
 <div style="margin-top: 2rem; width: 100%;">
-    <div class="table-responsive">
+    <div class="table-responsive" id="tbl">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div  class="col-lg-8"><h2> Product List</h2></div>
+                    <div  class="col-lg-8"><h2 style="color:rgb(3, 85, 3)"> Product List</h2></div>
                     <div class="col-lg-4">
                         <button (click)="onAdd()"  type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
                     </div>
@@ -28,28 +28,31 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th> ID</th>
-                        <th> Name</th>
+                      
+                        <th style="width:3rem"> Name</th>
                         
-                        <th>Unit-price</th>
-                        <th> Quantity </th>    
-                        <th>Image </th>
-                        <th>Actions</th>
+                        <th style="width:3rem">Unit-price</th>
+                        <th style="width:3rem"> Stock </th>    
+                        <th style="width:3rem">Image </th>
+                        <th style="width:3rem">Actions</th>
 
                     </tr>
                 </thead>
                 <tbody *ngFor="let pr of products">
                     <tr>
-                        <td>{{ pr.id}}</td>
+                      
                         <td>{{ pr.name }}</td>
                        
                         <td>{{ pr.unitPrice }}</td>
-                        <td>{{ pr.quantity }}</td>
+                        <td>{{ pr.stockAvailable }}</td>
                         <td> <img style="width:4.7rem; height: 2rem; "src="{{ pr.imageURL }}" >   </td>
                         <td style="width: 300px;">
-                           
+                           <div id="action">
                             <a class="edit clickable"  (click)="onEdit(pr)"   title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="delete clickable" (click)="onDelete(pr)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                           </div>
+        
+                          
                           
                           
                         </td>
@@ -62,4 +65,9 @@
     </div>    
 </div>  
 
-<app-admin-footer></app-admin-footer>
+
+<div style="margin-top: 15rem;">
+    <app-admin-footer></app-admin-footer>
+
+</div>
+

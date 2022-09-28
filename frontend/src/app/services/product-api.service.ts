@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Product } from '../models/product';
+
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,33 +14,33 @@ const httpOptions = {
 })
 export class ProductApiService {
 
-  private apiUrl = 'http://localhost:3000/products';
+  private apiUrl = 'http://localhost:3030/products';
  
 
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+  getProducts(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
   }
 
 
 
-  getProduct(ProductId: any): Observable<Product> {
-    const url = `${this.apiUrl}/${ProductId}`;
-    return this.http.get<Product>(url);
+  getProduct(anyId: any): Observable<any> {
+    const url = `${this.apiUrl}/${anyId}`;
+    return this.http.get<any>(url);
   }
 
-  addProduct(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.apiUrl, product, httpOptions);
+  addProduct(any: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, any, httpOptions);
   }
 
-  editProduct( product:Product): Observable<Product> {
-    const url = `${this.apiUrl}/${product.id}`;
-    return this.http.put<Product>(url, product, httpOptions);
+  editProduct( any:any): Observable<any> {
+    const url = `${this.apiUrl}/${any.id}`;
+    return this.http.put<any>(url, any, httpOptions);
   }
 
-  deleteProduct(product: Product): Observable<Product> {
-    const url = `${this.apiUrl}/${product.id}`;
-    return this.http.delete<Product>(url);
+  deleteProduct(any: any): Observable<any> {
+    const url = `${this.apiUrl}/${any.id}`;
+    return this.http.delete<any>(url);
   }
 }

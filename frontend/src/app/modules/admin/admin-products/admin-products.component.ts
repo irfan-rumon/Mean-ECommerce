@@ -10,19 +10,19 @@ import { Product } from 'src/app/models/product';
 })
 export class AdminProductsComponent implements OnInit {
 
-  products: Product[] = [];
+  products: any;
 
   constructor(private productApi:ProductApiService, private router: Router) { }
 
   ngOnInit(): void {
-    this.productApi.getProducts().subscribe(  (products)=>{
-      this.products = products;
-      console.log(products);
+    this.productApi.getProducts().subscribe(  response => {
+      this.products = response.data;
+     // console.log(response['data']);
     } )
   }
 
   onDelete(pr:Product){
-    this.productApi.deleteProduct(pr).subscribe(  () => (this.products = this.products.filter((p) => p.id !== pr.id)) );//internal array thekei delete
+    this.productApi.deleteProduct(pr).subscribe(  () => (this.products = this.products.filter((p: { _id: string | undefined; }) => p._id !== pr._id)) );//internal array thekei delete
   }
 
   onEdit(pr:Product){

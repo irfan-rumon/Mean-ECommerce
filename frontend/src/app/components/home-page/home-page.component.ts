@@ -33,7 +33,7 @@ export class HomePageComponent implements OnInit {
        this.catagories = catagories;
     } )
     this.productApi.getProducts().subscribe( (products)=>{
-         this.products = products;
+         this.products = products.data;
          for (let pr of this.products){
             if( pr.isTrending == true)this.trendingProducts.push( pr );
          }
