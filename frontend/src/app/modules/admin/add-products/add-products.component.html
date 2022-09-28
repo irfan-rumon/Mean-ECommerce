@@ -1,40 +1,121 @@
 
 <app-admin-navbar></app-admin-navbar>
-<div  class="container">  
-    <form id="contact"  (ngSubmit)="onSubmit()" >
-      <h2 style="margin-left: 27%;">Add a New Product:</h2>
-     
 
-      <fieldset>
-        <input placeholder="Product ID" type="text" tabindex="3"  name="id" [(ngModel)]="product.id"  required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Product Name" type="text" tabindex="3"  name="name" [(ngModel)]="product.name" required>
-      </fieldset>
-
-      <fieldset>
-        <input placeholder="Product Catagory" type="text" tabindex="3"  name="catagory" [(ngModel)]="product.catagory" required autofocus>
-      </fieldset>
-
-      <fieldset>
-        <input placeholder="Product Brand" type="text" tabindex="3"  name="brand" [(ngModel)]="product.brand" required autofocus>
-      </fieldset>
-     
-      <fieldset>
-        <input placeholder="Product Unit Price" type="text" tabindex="3"  name="unitPrice" [(ngModel)]="product.unitPrice"  required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Product Quantity" type="text" tabindex="3" name="quantity" [(ngModel)]="product.quantity" required>
-      </fieldset>
-      <fieldset>
-        <input placeholder="Product image-url" type="text" tabindex="3"  name="imageURL" [(ngModel)]="product.imageURL"  required>
-      </fieldset>
-      <fieldset>
-        <button name="add-product-btn" type="submit"data-submit="...Sending">Submit</button>
-      </fieldset>
+<div id="formContainer"class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+  <form  (ngSubmit)="onSubmit()" #addProduct = "ngForm">
+    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+      <h3 style="margin-left: 10rem;margin-bottom:2rem;color: rgb(78, 78, 122);">ADD a New Product:</h3>
       
-    </form>
-  </div>
-  <app-admin-footer></app-admin-footer>
+    </div>
+
+    
+     
+    <!-- name input -->
+    <div class="form-outline mb-4">
+      <input type="text"  class="form-control form-control-lg"
+        placeholder="Enter name" [(ngModel)]="product.name" name="name" #name="ngModel"  name="true" required />
+     
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+           class="alert">
+
+          <div *ngIf="name.errors?.['required']" style="color:red;margin-bottom: 0.5rem;">
+            * name is required.
+          </div>
+     
+        </div>
+
+
+    </div>
+
+    <!-- catagory input -->
+    <div class="form-outline mb-4">
+      <input type="text" id="form3Example4" class="form-control form-control-lg"
+        placeholder="Enter catagory" [(ngModel)]="product.catagory" name="catagory" #catagory="ngModel"  required />
+     
+        <div *ngIf="catagory.invalid && (catagory.dirty || catagory.touched)"
+           class="alert">
+
+          <div *ngIf="catagory.errors?.['required']" style="color:red;margin-bottom: 0.5rem;">
+            *catagory is required.
+          </div>
+     
+        </div>
+    </div>
+
+    <div class="form-outline mb-4">
+      <input type="text" id="form3Example4" class="form-control form-control-lg"
+        placeholder="Enter brand" [(ngModel)]="product.brand" name="brand" #brand="ngModel"  required />
+     
+        <div *ngIf="brand.invalid && (brand.dirty || brand.touched)"
+           class="alert">
+
+          <div *ngIf="brand.errors?.['required']" style="color:red;margin-bottom: 0.5rem;">
+            *brand is required.
+          </div>
+     
+        </div>
+    </div>
+
+    <div class="form-outline mb-4">
+      <input type="number" id="form3Example4" class="form-control form-control-lg"
+        placeholder="Enter quantity" [(ngModel)]="product.quantity" name="quantity" #quantity="ngModel"  required />
+     
+        <div *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)"
+           class="alert">
+
+          <div *ngIf="quantity.errors?.['required']" style="color:red;margin-bottom: 0.5rem;">
+            *quantity is required.
+          </div>
+     
+        </div>
+    </div>
+
+    <div class="form-outline mb-4">
+      <input type="number" id="form3Example4" class="form-control form-control-lg"
+        placeholder="Enter unit price" [(ngModel)]="product.unitPrice" name="unitPrice" #unitPrice="ngModel"  required />
+     
+        <div *ngIf="unitPrice.invalid && (unitPrice.dirty || unitPrice.touched)"
+           class="alert">
+
+          <div *ngIf="unitPrice.errors?.['required']" style="color:red;margin-bottom: 0.5rem;">
+            *Unit Price is required.
+          </div>
+     
+        </div>
+    </div>
+
+    <div class="form-outline mb-4">
+      <input type="text" id="form3Example4" class="form-control form-control-lg"
+        placeholder="Enter Image URL" [(ngModel)]="product.imageURL" name="imageURL" #imageURL="ngModel"  required />
+     
+        <div *ngIf="imageURL.invalid && (imageURL.dirty || imageURL.touched)"
+           class="alert">
+
+          <div *ngIf="imageURL.errors?.['required']" style="color:red;margin-bottom: 0.5rem;">
+            *Image URL is required.
+          </div>
+     
+        </div>
+    </div>
+
+   
+
+
+      
+
+    <div class="text-center text-lg-start mt-4 pt-2">
+      <button  *ngIf="addProduct.valid" type="submit"   class="btn btn-primary btn-lg"
+        style="padding-left: 2.5rem; padding-right: 2.5rem;">Add Product</button>
+
+        <button  *ngIf="!addProduct.valid" style="color:aliceblue" [disabled]="true" class="btn btn-lg"
+        style="padding-left: 2.5rem; padding-right: 2.5rem;">Add Product</button>
+
+    </div>
+
+  </form>
+</div>
+
+
+<app-admin-footer></app-admin-footer>
 
 

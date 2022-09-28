@@ -1,3 +1,7 @@
+td, th{
+    width: 5rem;
+}
+
 .clickable{
     cursor: pointer;
 }

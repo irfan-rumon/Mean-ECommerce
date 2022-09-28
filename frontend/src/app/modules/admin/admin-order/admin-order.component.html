@@ -26,13 +26,13 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th> Order ID</th>
-                        <th> User ID</th>
+                        <th style="width: 4rem;"> Order ID</th>
+                        <th style="width: 4rem;"> User ID</th>
                         
-                        <th>User Address</th>
-                        <th> User Phone </th>    
-                        <th>Product Quantity</th>
-                        <th>Total Bill</th>
+                        <th style="width: 4rem;">User Address</th>
+                        <th style="width: 4rem;"> User Phone </th>    
+                        <th style="width: 4rem;">Product Quantity</th>
+                        <th style="width: 4rem;">Total Bill</th>
 
                     </tr>
                 </thead>
@@ -45,13 +45,7 @@
                         <td>{{ or.userPhone }}</td>
                         <td>{{ or.quantity }}    </td>
                         <td>{{ or.total }}    </td>
-                        <td style="width: 300px;">
-                           
-                            
-                            <a class="delete clickable" (click)="onDelete(or)" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                          
-                          
-                        </td>
+                        
                     </tr>
                                   
                 </tbody>

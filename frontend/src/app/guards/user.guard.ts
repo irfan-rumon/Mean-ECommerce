@@ -12,19 +12,22 @@ export class UserGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-       if( this.auth.isLoggedIn()  )
+       if( !this.auth.isLoggedIn()  )
        {
-         console.log("Checkpoint", this.auth.getUser().roll );
-          if( this.auth.getUser().roll == "user")
-          {
-             
-              return true;
-          }
+         this.router.navigate(['/login']);
+         this.auth.deleteToken();
+         return false;
        }
+       if( this.auth.getUser().roll == "admin")
+       {
+             
+        this.router.navigate(['/login']);
+        this.auth.deleteToken();
+        return false;
+        }
+      return true;
         
-      this.router.navigate(['/login']);
-      this.auth.deleteToken();
-      return false;
+      
   }
   
 }

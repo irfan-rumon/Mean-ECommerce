@@ -45,6 +45,7 @@ table.table th i {
     font-size: 13px;
     margin: 0 5px;
     cursor: pointer;
+    width: 5rem;
 }
 table.table th:last-child {
     width: 100px;
@@ -53,7 +54,7 @@ table.table td a {
     cursor: pointer;
     display: inline-block;
     margin: 0 5px;
-    min-width: 24px;
+    width: 5rem;
 }    
 table.table td a.add {
     color: #27C46B;
