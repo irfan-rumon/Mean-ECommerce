@@ -7,6 +7,7 @@ import { ProductApiService } from 'src/app/services/product-api.service';
 import { SearchService } from 'src/app/services/search.service';
 import { CartService } from 'src/app/services/cart.service';
 import { CartProduct } from 'src/app/models/cartProduct';
+import { renderFlagCheckIfStmt } from '@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-home-page',

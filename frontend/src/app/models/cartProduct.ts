@@ -1,11 +1,10 @@
 export interface CartProduct {
-    id?: number; 
-    productID: number;
-    userID: number;
+    productID: string;
+    userID: string;
     imageURL: string;
     name: string;
     unitPrice : number;
     quantity: number;
     brand: string;
     subtotal: number;
-  }
+}

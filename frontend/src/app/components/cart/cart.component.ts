@@ -33,7 +33,7 @@ export class CartComponent implements OnInit {
               private productApi: ProductApiService) { }
 
   ngOnInit(): void {
-      this.cartService.getCartProducts().subscribe( (cartProducts)=>{
+     /* this.cartService.getCartProducts().subscribe( (cartProducts)=>{
         this.tempCartProducts = cartProducts;
         for(let cp of this.tempCartProducts){
             if( cp.userID == Number(localStorage.getItem('user-id')) )
@@ -45,7 +45,7 @@ export class CartComponent implements OnInit {
             this.totalAddedQuanty += +cp.quantity;
         }
       } )
-      this.grandTotal = this.total + this.shipping;  
+      this.grandTotal = this.total + this.shipping;  */
   }
 
   onCardSubmit(){
@@ -53,7 +53,7 @@ export class CartComponent implements OnInit {
   }
 
   addQuantity(cartProduct:CartProduct){
-    this.totalAddedQuanty++;
+    /*this.totalAddedQuanty++;
     for(let cp  of this.cartProducts){
       if(cp.id == cartProduct.id){ 
           cp.quantity++;
@@ -64,11 +64,11 @@ export class CartComponent implements OnInit {
          // console.log("Akn cart", this.auth.getUser());
           return; 
       }
-    }
+    }*/
   }
 
   minusQuantity(cartProduct:CartProduct){
-    if( cartProduct.quantity == 1){
+    /*if( cartProduct.quantity == 1){
         this.deleteCartProduct(cartProduct);
         return;
     }
@@ -82,11 +82,12 @@ export class CartComponent implements OnInit {
           this.cartService.editCartProduct(cartProduct.id, cp).subscribe(); 
           return; 
       }
-    }
+    }*/
 
   }
 
   deleteCartProduct(cartProduct:CartProduct){
+    /*
       this.total -= +cartProduct.subtotal;
       this.grandTotal -= +cartProduct.subtotal;
       this.totalAddedQuanty -= +cartProduct.quantity;
@@ -95,12 +96,12 @@ export class CartComponent implements OnInit {
       const indexOfObject = this.cartProducts.findIndex((object) => {
         return object === cartProduct;
       });  
-      this.cartProducts.splice(indexOfObject, 1);//internal array theke delete
+      this.cartProducts.splice(indexOfObject, 1);//internal array theke delete*/
   }
 
    onCheckout(){
       //this.router.navigate(['/order-confirmation']);
-      for(let cp of this.cartProducts){
+      /*for(let cp of this.cartProducts){
          
             let orderProduct:OrderProduct = {
                productID: +cp.productID, 
@@ -125,6 +126,7 @@ export class CartComponent implements OnInit {
 
       }
       this.router.navigate(['/order-confirmation']);
+      */
 
    }
  

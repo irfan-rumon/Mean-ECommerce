@@ -26,7 +26,7 @@ export class AdminProductsComponent implements OnInit {
   }
 
   onEdit(pr:Product){
-    this.router.navigate(['admin/products', pr.id, 'edit']);
+    this.router.navigate(['admin/products', pr._id, 'edit']);
   }
 
   onAdd(){

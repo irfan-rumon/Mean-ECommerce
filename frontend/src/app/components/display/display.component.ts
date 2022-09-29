@@ -24,7 +24,7 @@ export class DisplayComponent implements OnInit {
   ngOnInit(): void {
       this.products = this.searchService.getProducts();
 
-      this.cartService.getCartProducts().subscribe(  (cartProducts)=>{
+      this.cartService.getCartProducts().subscribe(  (cartProducts: CartProduct[])=>{
         this.cartProducts = cartProducts;
         let totalQ: number = 0;
         for(let cp of this.cartProducts){

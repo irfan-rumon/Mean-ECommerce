@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CartProduct } from '../models/cartProduct';
+
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CartProduct } from '../models/cartProduct';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,27 +16,28 @@ const httpOptions = {
 })
 export class CartService {
 
-  private apiUrl = 'http://localhost:3000/cart-products';
+  private apiUrl = 'http://localhost:3030/cart-products';
 
 
   constructor(private http: HttpClient) { }
 
-  getCartProducts(): Observable<CartProduct[]>{
-    return this.http.get<CartProduct[]>(this.apiUrl);
+  getCartProducts(): Observable<any>{
+    return this.http.get<any>(this.apiUrl);
   }
 
-  addCartProduct(cp: CartProduct): Observable<CartProduct> {
-    return this.http.post<CartProduct>(this.apiUrl, cp);
+  addCartProduct(cp: CartProduct):any {
+    return this.http.post<any>(this.apiUrl, cp);
   }
 
-  editCartProduct(id: any, cp:CartProduct): Observable<CartProduct> {
+  editCartProduct(id: any, cp:any):any {
+    console.log(id);
     const url = `${this.apiUrl}/${id}`;
-    return this.http.put<CartProduct>(url, cp, httpOptions);
+    return this.http.put<any>(url, cp, httpOptions);
   }
 
-  deleteCartProduct(cp:CartProduct): Observable<CartProduct> {
-    const url = `${this.apiUrl}/${cp.id}`;
-    return this.http.delete<CartProduct>(url);
+  deleteCartProduct(cp:any):any {
+    const url = `${this.apiUrl}/${cp._id}`;
+    return this.http.delete<any>(url);
   }
 
 }

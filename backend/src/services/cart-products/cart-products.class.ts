@@ -10,10 +10,10 @@ export class CartProducts extends Service {
     super(options);
   }
 
-  async find() {
-    return this.Model.find().where('userID').equals('krewghg5897'); //custome quetu with a partical user id
+  /*async find() {
+    return this.Model.find().where('userID').equals('sdfgggtrh'); //custome quetu with a partical user id
     //return [];
-  }
+  }*/
 
   
 }
