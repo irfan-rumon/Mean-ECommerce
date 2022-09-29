@@ -8,18 +8,12 @@ import { User } from '../models/user';
 })
 export class AuthorizationService {
 
-  currentUser: any;
+  currentUser: User;
   
  
   constructor(private http: HttpClient, private userApi: UserApiService) { }
 
-   setUser(user:User){
-      this.currentUser = user;
-   }
-
-   getUser(){
-     return this.currentUser;
-   }
+  
 
   setToken(token: string) {
     localStorage.setItem('token', token);
@@ -34,13 +28,7 @@ export class AuthorizationService {
 
   }
 
-  isAdmin():boolean{
-   
-    return false;
 
-   
-    
-  }
 
   getUserPayload() {
     var token = this.getToken();

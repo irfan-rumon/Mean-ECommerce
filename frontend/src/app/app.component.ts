@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { User } from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,10 @@ import { AuthInterceptor } from './services/auth.interceptor';
 })
 export class AppComponent {
 
+   currentUser:User;
+
+   
  
 
-  title = 'frontend';
+ 
 }

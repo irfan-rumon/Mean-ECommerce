@@ -30,7 +30,7 @@ export class UserApiService {
   }
 
 
-  getUser(userId: any): Observable<User> {
+  getUser(userId: any):Observable<User> {
     const url = `${this.apiUrl}/${userId}`;
     return this.http.get<User>(url);
   }
