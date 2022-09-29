@@ -17,11 +17,11 @@ import { AuthorizationService } from 'src/app/services/authorization.service';
 export class CartComponent implements OnInit {
 
   card: Card = {} as Card;
-  tempCartProducts: CartProduct[] = [];
-  cartProducts: CartProduct[] = [];
+ 
+  cartProducts: any[] = [];
   total:number = 0;
   shipping:number = 3;
-  grandTotal:number;
+  grandTotal:number = 3;
   totalAddedQuanty:number = 0;
  
 
@@ -33,61 +33,59 @@ export class CartComponent implements OnInit {
               private productApi: ProductApiService) { }
 
   ngOnInit(): void {
-     /* this.cartService.getCartProducts().subscribe( (cartProducts)=>{
-        this.tempCartProducts = cartProducts;
-        for(let cp of this.tempCartProducts){
-            if( cp.userID == Number(localStorage.getItem('user-id')) )
-               this.cartProducts.push(cp);
-        }
-        for(let cp of this.cartProducts){
-            this.total += +cp.subtotal;
-            this.grandTotal += +cp.subtotal;
-            this.totalAddedQuanty += +cp.quantity;
-        }
-      } )
-      this.grandTotal = this.total + this.shipping;  */
+
+    this.cartService.getCartProducts().subscribe(  (res)=>{
+         let arr:any[] = res.data;
+         for(let cp of arr){
+             if( cp.userID == this.auth.getUserPayload().sub){
+                  this.cartProducts.push(cp);
+                  this.total +=  +cp.subtotal;
+                  this.grandTotal += +cp.subtotal;
+             }
+         }
+    }  )
   }
 
   onCardSubmit(){
     console.log("Heyy");
   }
 
-  addQuantity(cartProduct:CartProduct){
-    /*this.totalAddedQuanty++;
+  addQuantity(cartProduct:any){
+    this.totalAddedQuanty++;
     for(let cp  of this.cartProducts){
-      if(cp.id == cartProduct.id){ 
+      if(cp._id == cartProduct._id){ 
           cp.quantity++;
           cp.subtotal = +cp.unitPrice  +  +cp.subtotal;
           this.total += +cp.unitPrice;
           this.grandTotal += +cp.unitPrice;  
-          this.cartService.editCartProduct(cartProduct.id, cp).subscribe(); 
+          this.cartService.editCartProduct(cartProduct._id, cp).subscribe(); 
          // console.log("Akn cart", this.auth.getUser());
           return; 
       }
-    }*/
+    }
   }
 
-  minusQuantity(cartProduct:CartProduct){
-    /*if( cartProduct.quantity == 1){
+  minusQuantity(cartProduct:any){
+    if( cartProduct.quantity == 1){
         this.deleteCartProduct(cartProduct);
         return;
     }
     this.totalAddedQuanty--;
     for(let cp  of this.cartProducts){
-      if(cp.id == cartProduct.id){ 
+      if(cp._id == cartProduct._id){ 
           cp.quantity--;
           cp.subtotal =  +cp.subtotal -  +cp.unitPrice;  
           this.total -= +cp.unitPrice;
           this.grandTotal -= +cp.unitPrice;
-          this.cartService.editCartProduct(cartProduct.id, cp).subscribe(); 
+          this.cartService.editCartProduct(cartProduct._id, cp).subscribe(); 
           return; 
       }
-    }*/
+    }
 
   }
 
-  deleteCartProduct(cartProduct:CartProduct){
-    /*
+  deleteCartProduct(cartProduct:any){
+    
       this.total -= +cartProduct.subtotal;
       this.grandTotal -= +cartProduct.subtotal;
       this.totalAddedQuanty -= +cartProduct.quantity;
@@ -99,11 +97,11 @@ export class CartComponent implements OnInit {
       this.cartProducts.splice(indexOfObject, 1);//internal array theke delete*/
   }
 
-   onCheckout(){
+   onCheckout(){ //
       //this.router.navigate(['/order-confirmation']);
-      /*for(let cp of this.cartProducts){
+      for(let cp of this.cartProducts){
          
-            let orderProduct:OrderProduct = {
+            let orderProduct:any = {
                productID: +cp.productID, 
                userID: +cp.userID,
                imageURL: cp.imageURL,
@@ -126,7 +124,7 @@ export class CartComponent implements OnInit {
 
       }
       this.router.navigate(['/order-confirmation']);
-      */
+      
 
    }
  

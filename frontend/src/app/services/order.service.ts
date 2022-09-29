@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class OrderService {
 
-  private apiUrl = 'http://localhost:3000/order-products';
+  private apiUrl = 'http://localhost:3030/order-products';
 
   constructor(private http: HttpClient) { }
 
@@ -23,8 +23,8 @@ export class OrderService {
     return this.http.get<OrderProduct[]>(this.apiUrl);
   }
 
-  addOrderProduct(cp: OrderProduct): Observable<OrderProduct> {
-    return this.http.post<OrderProduct>(this.apiUrl, cp);
+  addOrderProduct(cp: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, cp);
   }
 
   editOrderProduct(id: any, cp:OrderProduct): Observable<OrderProduct> {
