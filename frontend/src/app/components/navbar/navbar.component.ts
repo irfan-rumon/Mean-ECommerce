@@ -19,8 +19,6 @@ export class NavbarComponent implements OnInit {
   catagories: Catagory[] = [];
   inputVal: string;
   @Input() totalAddedQuantity: number;
-  totalQ: number = 0;
-
 
   constructor(
       private router:Router,
@@ -39,9 +37,6 @@ export class NavbarComponent implements OnInit {
       this.catagoryApi.getCatagories().subscribe( (cats)=>{
         this.catagories = cats;
      } )
-    
-   
-     
   }
 
   onLogout(){
@@ -49,7 +44,7 @@ export class NavbarComponent implements OnInit {
   }
 
 
-  reloadComponent() { //for reloading the current component
+  reloadComponent() { 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate(['/display']);

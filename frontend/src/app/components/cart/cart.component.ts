@@ -43,7 +43,20 @@ export class CartComponent implements OnInit {
                   this.grandTotal += +cp.subtotal;
              }
          }
-    }  )
+    })
+
+    this.cartService.getCartProducts().subscribe(  (cartProducts)=>{
+      this.cartService.getCartProducts().subscribe(  (res)=>{
+           this.cartProducts = res.data;
+           for( let cp of this.cartProducts){
+               if( cp.userID == this.auth.getUserPayload().sub){
+                  this.totalAddedQuanty += cp.quantity;
+               }
+           }    
+      })
+})
+
+
   }
 
   onCardSubmit(){

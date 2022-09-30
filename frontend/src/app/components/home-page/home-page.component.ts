@@ -7,7 +7,8 @@ import { ProductApiService } from 'src/app/services/product-api.service';
 import { SearchService } from 'src/app/services/search.service';
 import { CartService } from 'src/app/services/cart.service';
 import { CartProduct } from 'src/app/models/cartProduct';
-import { renderFlagCheckIfStmt } from '@angular/compiler/src/render3/view/template';
+import { AuthorizationService } from 'src/app/services/authorization.service';
+
 
 @Component({
   selector: 'app-home-page',
@@ -19,14 +20,15 @@ export class HomePageComponent implements OnInit {
   catagories: Catagory[] = [];
   products: Product[];
   trendingProducts: Product[] = [];
-  totalAddedQuanty:number;
+  totalAddedQuanty:number = 0;
   cartProducts:CartProduct[];
  
   
   constructor(private router: Router, private catagoryApi:CatagoryApiService,
               private productApi: ProductApiService,
               private searchService: SearchService,
-              private cartService: CartService
+              private cartService: CartService,
+              private auth: AuthorizationService
     ) { }
 
   ngOnInit(): void {
@@ -40,12 +42,14 @@ export class HomePageComponent implements OnInit {
          }
     } )
     this.cartService.getCartProducts().subscribe(  (cartProducts)=>{
-          this.cartProducts = cartProducts;
-          let totalQ: number = 0;
-          for(let cp of this.cartProducts){
-              totalQ += cp.quantity;
-          }
-          this.totalAddedQuanty = totalQ;    
+          this.cartService.getCartProducts().subscribe(  (res)=>{
+               this.cartProducts = res.data;
+               for( let cp of this.cartProducts){
+                   if( cp.userID == this.auth.getUserPayload().sub){
+                      this.totalAddedQuanty += cp.quantity;
+                   }
+               }    
+          })
     })
 
   
