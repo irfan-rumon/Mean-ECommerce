@@ -99,11 +99,12 @@ export class CartComponent implements OnInit {
 
    onCheckout(){ //
       //this.router.navigate(['/order-confirmation']);
+      console.log("On checkout e to entered");
       for(let cp of this.cartProducts){
          
             let orderProduct:any = {
-               productID: +cp.productID, 
-               userID: +cp.userID,
+               productID: cp.productID, 
+               userID: this.auth.getUserPayload().sub,
                imageURL: cp.imageURL,
                name: cp.name,
                unitPrice : +cp.unitPrice,
@@ -111,8 +112,10 @@ export class CartComponent implements OnInit {
                brand: cp.brand,
                subtotal: +cp.subtotal
             }
-            this.orderService.addOrderProduct(orderProduct).subscribe(  (res)=>{
 
+            console.log("ai porjobtooooooo", orderProduct);
+            this.orderService.addOrderProduct(orderProduct).subscribe(  (res)=>{
+              console.log(orderProduct);
               this.cartService.deleteCartProduct(cp).subscribe(  ()=>{
                 const indexOfObject = this.cartProducts.findIndex((object) => {
                   return object === cp;

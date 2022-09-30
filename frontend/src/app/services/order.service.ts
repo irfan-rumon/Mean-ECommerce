@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { OrderProduct } from '../models/orderProduct';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -19,21 +18,21 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  getOrderProducts(): Observable<OrderProduct[]>{
-    return this.http.get<OrderProduct[]>(this.apiUrl);
+  getOrderProducts(): Observable<any>{
+    return this.http.get<any>(this.apiUrl);
   }
 
   addOrderProduct(cp: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, cp);
   }
 
-  editOrderProduct(id: any, cp:OrderProduct): Observable<OrderProduct> {
+  editOrderProduct(id: any, cp:any): Observable<any> {
     const url = `${this.apiUrl}/${id}`;
-    return this.http.put<OrderProduct>(url, cp, httpOptions);
+    return this.http.put<any>(url, cp, httpOptions);
   }
 
-  deleteOrderProduct(id: any): Observable<OrderProduct> {
+  deleteOrderProduct(id: any): Observable<any> {
     const url = `${this.apiUrl}/${id}`;
-    return this.http.delete<OrderProduct>(url);
+    return this.http.delete<any>(url);
   }
 }
