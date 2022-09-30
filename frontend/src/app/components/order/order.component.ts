@@ -18,37 +18,31 @@ export class OrderComponent implements OnInit {
   total: number = 0;
   grandTotal:number = 3;
   totalAddedQuanty:number = 0;
+  orders:Order[] = [];
   cartProducts: any[] = [];
  
 
   constructor(private router:Router,
               private orderService: OrderService,
               private cartService: CartService, 
-              private adminOrderApi: OrderApiService,
+              private orderApi: OrderApiService,
               private auth: AuthorizationService
              ) { }
 
   ngOnInit(): void {
-    this.orderService.getOrderProducts().subscribe(    (res)=>{
-        for(let op of res.data){
-           if( op.userID == this.auth.getUserPayload().sub ){
-               this.orderProducts.push( op );
-               this.total += op.subtotal;
-               this.grandTotal += op.subtotal;
-           }
-        }
-    })
+       this.orderApi.getOrders().subscribe( (res)=>{
+            let arr:any = res.data;
+            for(let order of arr){
+                 if( order.userID == this.auth.getUserPayload().sub  ){
+                    this.orders.push( order);
+                 }
+            }
+       }  )
+  }
+   
 
 
-      this.cartService.getCartProducts().subscribe(  (res)=>{
-           this.cartProducts = res.data;
-           for( let cp of this.cartProducts){
-               if( cp.userID == this.auth.getUserPayload().sub){
-                  this.totalAddedQuanty += cp.quantity;
-               }
-           }    
-      })
-    }
+      
 }
      
 

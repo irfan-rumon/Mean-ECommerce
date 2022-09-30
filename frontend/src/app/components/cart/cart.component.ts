@@ -117,7 +117,9 @@ export class CartComponent implements OnInit {
       
             let newOrder:Order = {
                 userID: this.auth.getUserPayload().sub,
-                status : "Pending"
+                status : "Pending",
+                totalAddedQuantity : this.totalAddedQuanty,
+                grandTotal: this.grandTotal
             }
             
             this.orderApi.addOrder(  newOrder ).subscribe( (addedOrder)=>{
