@@ -8,6 +8,8 @@ import { CartProduct } from 'src/app/models/cartProduct';
 import { OrderProduct } from 'src/app/models/orderProduct';
 import { Card } from 'src/app/models/card';
 import { AuthorizationService } from 'src/app/services/authorization.service';
+import { OrderApiService } from 'src/app/services/order-api.service';
+import { Order } from 'src/app/models/order';
 
 @Component({
   selector: 'app-cart',
@@ -29,6 +31,7 @@ export class CartComponent implements OnInit {
   constructor(private router:Router,
               private cartService: CartService,
               private orderService: OrderService,
+              private orderApi: OrderApiService,
               private auth:  AuthorizationService,
               private productApi: ProductApiService) { }
 
@@ -111,34 +114,45 @@ export class CartComponent implements OnInit {
   }
 
    onCheckout(){ //
-      //this.router.navigate(['/order-confirmation']);
-      console.log("On checkout e to entered");
-      for(let cp of this.cartProducts){
+      
+            let newOrder:Order = {
+                userID: this.auth.getUserPayload().sub,
+                status : "Pending"
+            }
+            
+            this.orderApi.addOrder(  newOrder ).subscribe( (addedOrder)=>{
+
+              console.log("Added Product: ", addedOrder);
+              for(let cp of this.cartProducts){
          
-            let orderProduct:any = {
-               productID: cp.productID, 
-               userID: this.auth.getUserPayload().sub,
-               imageURL: cp.imageURL,
-               name: cp.name,
-               unitPrice : +cp.unitPrice,
-               quantity: +cp.quantity,
-               brand: cp.brand,
-               subtotal: +cp.subtotal
+                    let orderProduct:OrderProduct = {
+                      productID: cp.productID, 
+                      userID: this.auth.getUserPayload().sub,
+                      imageURL: cp.imageURL,
+                      name: cp.name,
+                      unitPrice : +cp.unitPrice,
+                      quantity: +cp.quantity,
+                      brand: cp.brand,
+                      subtotal: +cp.subtotal,
+                      orderID : addedOrder._id
+                    }
+
+
+                 
+                  this.orderService.addOrderProduct(orderProduct).subscribe(  (res)=>{
+                    console.log("Ressssss: ", res);
+                    this.cartService.deleteCartProduct(cp).subscribe(  ()=>{
+                      const indexOfObject = this.cartProducts.findIndex((object) => {
+                        return object === cp;
+                      });  
+                      this.cartProducts.splice(indexOfObject, 1);//internal array theke delete
+                    } );
+                  });
             }
 
-            console.log("ai porjobtooooooo", orderProduct);
-            this.orderService.addOrderProduct(orderProduct).subscribe(  (res)=>{
-              console.log(orderProduct);
-              this.cartService.deleteCartProduct(cp).subscribe(  ()=>{
-                const indexOfObject = this.cartProducts.findIndex((object) => {
-                  return object === cp;
-                });  
-                this.cartProducts.splice(indexOfObject, 1);//internal array theke delete
-              } );
-            });
-           
 
-      }
+          })
+           
       this.router.navigate(['/order-confirmation']);
       
 

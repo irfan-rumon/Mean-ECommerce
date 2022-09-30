@@ -1,5 +1,11 @@
-td, th{
-    width: 5rem;
+#action{
+    display: flex;
+    gap: 2px;
+    padding: 1px;
+}
+
+#tbl{
+    width: 90%;
 }
 
 .clickable{
@@ -12,7 +18,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 .table-wrapper {
-    width: 700px;
+    width: 1250px;
     margin: 30px auto;
     background: #fff;
     padding: 20px;	
@@ -49,6 +55,7 @@ table.table th i {
     font-size: 13px;
     margin: 0 5px;
     cursor: pointer;
+    width: 5rem;
 }
 table.table th:last-child {
     width: 100px;
@@ -57,7 +64,7 @@ table.table td a {
     cursor: pointer;
     display: inline-block;
     margin: 0 5px;
-    min-width: 24px;
+    width: 10rem;
 }    
 table.table td a.add {
     color: #27C46B;

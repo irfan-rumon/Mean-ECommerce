@@ -52,7 +52,6 @@ export class NavbarComponent implements OnInit {
 
 
   onSearch(){
-    console.log("Typed: ", this.inputVal);
    
     let searchedProducts:Product[] = [];
 

@@ -12,6 +12,7 @@ export default function (app: Application): Model<any> {
   const schema = new Schema({
     productID: { type: String, required: true },
     userID:{ type: String, required: true },
+    orderID:{ type: String, required: true },
     imageURL: { type: String },
     name: { type: String, required: true },
     unitPrice : { type: Number, required: true },

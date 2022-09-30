@@ -1,5 +1,5 @@
 export interface OrderProduct {
-    id?: number;
+    _id?: string;
     productID: number;
     userID: number;
     imageURL: string;
@@ -8,4 +8,5 @@ export interface OrderProduct {
     quantity: number;
     brand: string;
     subtotal: number;
+    orderID: string;
   }

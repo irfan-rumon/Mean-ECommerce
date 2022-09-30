@@ -11,13 +11,14 @@ import { UserApiService } from 'src/app/services/user-api.service';
 })
 export class UserListComponent implements OnInit {
 
-  users: User[] = [];
+  users: any[] = [];
 
   constructor(private userApi:UserApiService, private router:Router) { }
 
   ngOnInit(): void {
-    this.userApi.getUsers().subscribe( (users)=>{
-        this.users = users;
+    this.userApi.getUsers().subscribe( (res)=>{
+        let arr:any = res;   //temporary array use kore response obj ke cathck kora
+        this.users = arr.data;
     } )
   }
 

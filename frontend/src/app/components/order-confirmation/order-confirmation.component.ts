@@ -33,19 +33,5 @@ export class OrderConfirmationComponent implements OnInit {
      } )
      
    }
-
-   ngOnDestroy():void{
-    let myorder: Order = {
-      userId : Number(localStorage.getItem('user-id') ),
-      userAddress:  String( localStorage.getItem('user-address') ),
-      userPhone: String(localStorage.getItem('user-phone') ),
-      quantity: this.orderedQuantity,
-      total: this.totalBill
-     }
-     this.orderApi.addOrder(myorder).subscribe();
-
-   }
-
-   
-
+ 
 }
