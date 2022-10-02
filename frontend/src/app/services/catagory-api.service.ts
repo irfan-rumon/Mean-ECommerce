@@ -14,12 +14,12 @@ const httpOptions = {
 })
 export class CatagoryApiService {
 
-  private apiUrl = 'http://localhost:3000/catagories';
+  private apiUrl = 'http://localhost:3030/catagories';
 
   constructor(private http: HttpClient) { }
 
   
-  getCatagories(): Observable<Catagory[]> {
-    return this.http.get<Catagory[]>(this.apiUrl);
+  getCatagories(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
   }
 }

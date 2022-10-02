@@ -33,7 +33,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.catagoryApi.getCatagories().subscribe(  (catagories)=>{
-       this.catagories = catagories;
+       this.catagories = catagories.data;
     } )
     this.productApi.getProducts().subscribe( (products)=>{
          this.products = products.data;

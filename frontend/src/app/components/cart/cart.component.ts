@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
   shipping:number = 3;
   grandTotal:number = 3;
   totalAddedQuanty:number = 0;
- 
+
 
 
   constructor(private router:Router,
@@ -58,7 +58,7 @@ export class CartComponent implements OnInit {
            }    
       })
 })
-
+  
 
   }
 

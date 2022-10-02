@@ -63,7 +63,7 @@
                         </tr>
                         
                     </tbody>
-                    <tr>
+                    <tr *ngIf="cartProducts.length > 0">
                         <td colspan="6" align="right">Total:</td>
                         <td class="total" colspan="2"><b>${{total}}</b>
                         </td>
@@ -128,15 +128,14 @@
                     
                 </form>
                 <div class="col-lg-4 mt-2">
-                    <div class="row d-flex justify-content-between px-4">
+                    <div class="row d-flex justify-content-between px-4"  *ngIf="cartProducts.length > 0">
                         <h6 class="mb-1 text-left">Total:  <span style="color: rgb(35, 101, 4); margin-left: 1rem;"class=" mb-1 text-right ">${{total}}</span></h6>
                        
                     </div>
-                    <div class="row d-flex justify-content-between px-4">
+                    <div class="row d-flex justify-content-between px-4" *ngIf="cartProducts.length > 0">
                         <h6 class="mb-1 text-left">Shipping:  <span style="color: rgb(35, 101, 4);  margin-left: 1rem;"class=" mb-1 text-right">${{shipping}}</span></h6>
-                       
                     </div>
-                    <div class="row d-flex justify-content-between px-4" id="tax">
+                    <div class="row d-flex justify-content-between px-4" id="tax" *ngIf="cartProducts.length > 0">
                         <h6 class="mb-1 text-left">Grand Total(Inc. Tax):<span style="color: rgb(35, 101, 4); margin-left: 1rem;"class=" mb-1 text-right">${{grandTotal}}</span></h6>
                        
                     </div>
