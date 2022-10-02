@@ -18,7 +18,7 @@ export class OrderComponent implements OnInit {
   total: number = 0;
   grandTotal:number = 3;
   totalAddedQuanty:number = 0;
-  orders:Order[] = [];
+  orders:any[] = [];
   cartProducts: any[] = [];
  
 

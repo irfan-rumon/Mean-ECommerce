@@ -32,12 +32,10 @@
                         <tbody *ngFor="let op of orders">
                            
                             <tr>
-                                <td class="hidden-xs">
-                                    <a href="#">
-                                        <img src="{{op._id}}" alt="Adidas Men Red Printed T-shirt" title="" width="47" height="47">
-                                    </a>
+                                <td class="medium-font">
+                                    {{op._id}}
                                 </td>
-                                <td class="medium-font">date</td>
+                                <td class="medium-font">{{ op.createdAt }}</td>
             
                                 
                                 <td class="medium-font">
@@ -48,7 +46,11 @@
                                     {{op.grandTotal}}
                                 </td>
 
-                                <td class="medium-font">
+                                <td *ngIf="op.status=='Pending'" class="medium-font" style="color:rgb(247, 17, 17)">
+                                    {{op.status}}
+                                </td>
+
+                                <td *ngIf="op.status=='Delivered'" class="medium-font" style="color: green">
                                     {{op.status}}
                                 </td>
                                
@@ -61,18 +63,7 @@
                     </table>
                 </div>
                 
-                <div class="d-flex">
-                    <div  class="row justify-content-center">
-                        <h6 class="header" style="margin-left: 2rem;">Order Status: <span class="price-info" style="color:red">Pending</span></h6>
-                    </div>
-    
-                    <div  class="row justify-content-center">
-                        <h6 class="header" style="margin-left: 58rem;">Total:<span class="price-info">${{total}}</span></h6>
-                        <h6 class="header" style="margin-left: 58rem;">Shipping: <span class="price-info">${{shipping}}</span></h6>
-                        <h6 class="header" style="margin-left: 58rem;">Grand Total(Tax Included):   <span class="price-info">${{grandTotal}}</span></h6>
-                    </div>
-
-                </div>
+            
                 
             </div>
           
