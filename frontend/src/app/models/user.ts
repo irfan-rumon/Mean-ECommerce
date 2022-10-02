@@ -8,5 +8,5 @@ export interface User{
     password:string;
     passConfirm?:string;
     roll?:string;
-
+    status?:string;
   }

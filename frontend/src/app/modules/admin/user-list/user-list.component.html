@@ -1,4 +1,5 @@
 <app-admin-navbar></app-admin-navbar>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,18 +33,30 @@
                         <th style="width: 4rem;">User Email</th>
                         <th style="width: 4rem;"> User Phone </th>    
                         <th style="width: 4rem;">User Address</th>
+                        <th style="width: 4rem;">User Status</th>
                      
 
                     </tr>
                 </thead>
                 <tbody *ngFor="let user of users">
-                    <tr>
+                    <tr *ngIf="user.roll == 'user' ">
                         <td>{{ user._id}}</td>
                         <td>{{ user.fullName }}</td>
                         <td>{{ user.email }}</td> 
                         <td>{{ user.phone }}</td>
                         <td>{{ user.address }}</td>
-                     
+                        <td *ngIf="user.status=='Active' ">
+                            {{ user.status }}
+                           <button type="submit" (click)="onChangeStatus(user)">Set as Disabled</button>
+
+                        </td>
+
+                        <td *ngIf="user.status=='Disabled' ">
+                            {{ user.status }}
+                           <button type="submit" (click)="onChangeStatus(user)">Set as Active</button>
+
+                        </td>
+                       
                        
                     </tr>
                                   
