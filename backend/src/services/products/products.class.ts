@@ -6,6 +6,4 @@ export class Products extends Service {
   constructor(options: Partial<MongooseServiceOptions>, app: Application) {
     super(options);
   }
-
- 
 }

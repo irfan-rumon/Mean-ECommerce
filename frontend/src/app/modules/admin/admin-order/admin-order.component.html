@@ -23,33 +23,75 @@
                     
                 </div>
             </div>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th style="width: 4rem;"> Order ID</th>
-                        <th style="width: 4rem;"> User ID</th>
-                        
-                        <th style="width: 4rem;">User Address</th>
-                        <th style="width: 4rem;"> User Phone </th>    
-                        <th style="width: 4rem;">Product Quantity</th>
-                        <th style="width: 4rem;">Total Bill</th>
+            <div class="col-lg-12 col-sm-12 hero-feature">
+                <div class="card col-lg-12" style="width: 100%;">
+                    <div class="table-responsive" style="width: 100%;">
+                        <table class="table table-bordered tbl-cart">
+                            <thead>
+                                <tr>
+                                    <td class="header">Order Id</td>
+                                    
+                                    <td class="header">Order Date </td>
+                                    <td class="header">User Address </td>
+                                    <td class="header">User Phone</td>
+                                    <td class="header">Product Quantity</td>
+                                    <td class="td-qty header">Total Bill</td>
+                                    <td class="header">Status</td>
+                            
+                                    
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let op of orders">
+                               
+                                <tr>
+                                    <td class="medium-font">
+                                        {{op._id}}
+                                    </td>
+                                    <td class="medium-font">{{ op.createdAt }}</td>
+                
+                                    <td class="medium-font">
+                                        {{op.userAddress}}
+                                    </td>
 
-                    </tr>
-                </thead>
-                <tbody >
-                    <tr>
-                        <td></td>
-                        <td></td>
-                       
-                        <td></td>
-                        <td></td>
-                        <td>  </td>
-                        <td></td>
+                                    <td class="medium-font">
+                                        {{op.userPhone}}
+                                    </td>
+
+                                    <td class="medium-font">
+                                        {{op.totalAddedQuantity}}
+                                    </td>
+    
+                                    <td class="medium-font">
+                                        {{op.grandTotal}}
+                                    </td>
+    
+                                    <td *ngIf="op.status=='Pending'" class="medium-font fw-bold " style="color:rgb(236, 13, 13);  font-size:medium">
+                                        {{op.status}}
+                                        <button type="submit" id="onStatus" (click)="changeStatus(op)">Set as DELIVERED</button>
+                                    </td>
+    
+                                    <td *ngIf="op.status=='Delivered'" class="medium-font" style="color: green">
+                                        {{op.status}}
+                                        
+                                    </td>
+
+                                    
+                                   
+                                    
+                                   
+                                </tr>
+                                
+                            </tbody>
                         
-                    </tr>
-                                  
-                </tbody>
-            </table>
+                        </table>
+                    </div>
+                    
+                
+                    
+                </div>
+              
+    
+            </div>
         
         </div>
     </div>    

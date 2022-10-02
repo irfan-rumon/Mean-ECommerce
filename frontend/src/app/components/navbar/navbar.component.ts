@@ -31,11 +31,11 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
       this.productApi.getProducts().subscribe( (products)=>{
-        this.products = products;
+        this.products = products.data;
         
       } )
       this.catagoryApi.getCatagories().subscribe( (cats)=>{
-        this.catagories = cats;
+        this.catagories = cats.data;
      } )
   }
 

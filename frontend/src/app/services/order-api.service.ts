@@ -29,8 +29,8 @@ export class OrderApiService {
     return this.http.post<any>(this.apiUrl, order, httpOptions);
   }
 
-  editOrder( order:Order): Observable<Order> {
-    const url = `${this.apiUrl}/${order._id}`;
+  editOrder( orderId:string, order:Order): Observable<Order> {
+    const url = `${this.apiUrl}/${orderId}`;
     return this.http.put<Order>(url, order, httpOptions);
   }
 

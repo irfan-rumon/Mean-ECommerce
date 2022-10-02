@@ -1,6 +1,8 @@
 export interface Order{
     _id?:string;
-    userID: number;
+    userID: string;
+    userAddress: string,
+    userPhone: string,
     status: string;
     totalAddedQuantity: number;
     grandTotal: number;

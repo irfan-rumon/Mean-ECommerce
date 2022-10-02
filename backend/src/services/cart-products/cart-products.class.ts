@@ -1,19 +1,9 @@
-import { Params, Paginated } from '@feathersjs/feathers';
 import { Service, MongooseServiceOptions } from 'feathers-mongoose';
 import { Application } from '../../declarations';
-
-
 
 export class CartProducts extends Service {
   //eslint-disable-next-line @typescript-eslint/no-unused-vars
   constructor(options: Partial<MongooseServiceOptions>, app: Application) {
     super(options);
   }
-
-  /*async find() {
-    return this.Model.find().where('userID').equals('sdfgggtrh'); //custome quetu with a partical user id
-    //return [];
-  }*/
-
-  
 }

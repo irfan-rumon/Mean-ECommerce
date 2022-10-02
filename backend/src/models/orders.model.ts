@@ -11,6 +11,8 @@ export default function (app: Application): Model<any> {
   const { Schema } = mongooseClient;
   const schema = new Schema({
     userID:{ type: String, required: true },
+    userAddress:{ type: String, required: true },
+    userPhone:{ type: String, required: true },
     status: {type: String, required: true},
     totalAddedQuantity: {type: Number, required: true},
     grandTotal: {type: Number, required: true}

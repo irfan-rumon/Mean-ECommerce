@@ -10,6 +10,10 @@ import { Card } from 'src/app/models/card';
 import { AuthorizationService } from 'src/app/services/authorization.service';
 import { OrderApiService } from 'src/app/services/order-api.service';
 import { Order } from 'src/app/models/order';
+import { User } from 'src/app/models/user';
+import { LoggerUser } from 'src/app/models/loggerUser';
+import { UserApiService } from 'src/app/services/user-api.service';
+
 
 @Component({
   selector: 'app-cart',
@@ -25,6 +29,7 @@ export class CartComponent implements OnInit {
   shipping:number = 3;
   grandTotal:number = 3;
   totalAddedQuanty:number = 0;
+  user: User = {} as User;
 
 
 
@@ -33,6 +38,7 @@ export class CartComponent implements OnInit {
               private orderService: OrderService,
               private orderApi: OrderApiService,
               private auth:  AuthorizationService,
+              private userApi: UserApiService,
               private productApi: ProductApiService) { }
 
   ngOnInit(): void {
@@ -62,9 +68,7 @@ export class CartComponent implements OnInit {
 
   }
 
-  onCardSubmit(){
-    console.log("Heyy");
-  }
+
 
   addQuantity(cartProduct:any){
     this.totalAddedQuanty++;
@@ -115,14 +119,20 @@ export class CartComponent implements OnInit {
 
    onCheckout(){ //
       
+        this.user._id = this.auth.getUserPayload().sub;
+        this.userApi.getUser(this.user._id).subscribe(  (currentUser)=> {
+         
             let newOrder:Order = {
                 userID: this.auth.getUserPayload().sub,
+                userAddress: currentUser.address,
+                userPhone: currentUser.phone,
                 status : "Pending",
                 totalAddedQuantity : this.totalAddedQuanty,
                 grandTotal: this.grandTotal
             }
             
             this.orderApi.addOrder(  newOrder ).subscribe( (addedOrder)=>{
+              console.log("Enter ordered!!", addedOrder);
 
               console.log("Added Product: ", addedOrder);
               for(let cp of this.cartProducts){
@@ -142,7 +152,7 @@ export class CartComponent implements OnInit {
 
                  
                   this.orderService.addOrderProduct(orderProduct).subscribe(  (res)=>{
-                    console.log("Ressssss: ", res);
+                  
                     this.cartService.deleteCartProduct(cp).subscribe(  ()=>{
                       const indexOfObject = this.cartProducts.findIndex((object) => {
                         return object === cp;
@@ -154,6 +164,10 @@ export class CartComponent implements OnInit {
 
 
           })
+
+      
+        })
+  
            
       this.router.navigate(['/order-confirmation']);
       

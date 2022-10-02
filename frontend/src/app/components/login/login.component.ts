@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit(){
-    console.log("Log Entered!!");
+  
     this.user.strategy = "local";
    this.userApi.logUser(this.user).subscribe(   (res)=>{
     

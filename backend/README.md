@@ -1,6 +1,6 @@
 # backend
 
-> Backend Service for Mean ECommerce Application
+> Backend Service for Mean ECommerce
 
 ## About
 
