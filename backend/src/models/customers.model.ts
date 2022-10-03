@@ -1,23 +1,21 @@
-// users-model.ts - A mongoose model
+// customers-model.ts - A mongoose model
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 import { Application } from '../declarations';
-//import {Model} from 'mongoose';
 import { Model, Mongoose } from 'mongoose';
 
 export default function (app: Application): Model<any> {
-  const modelName = 'users';
+  const modelName = 'customers';
   const mongooseClient: Mongoose = app.get('mongooseClient');
-  const schema = new mongooseClient.Schema({
-  
-    email: { type: String, unique: true, lowercase: true, required:true },
-    password: { type: String, required:true },
-    fullName: { type: String},
-    phone: { type: String},
-    address: { type: String},
-    roll: { type: String, default: 'user'},
-
+  const { Schema } = mongooseClient;
+  const schema = new Schema({
+    userID: { type: String, required: true },
+    name: {type: String, required: true},
+    email: {type: String, required: true},
+    address: {type: String, required: true},
+    phone: {type: String, required:true},
+    status: {type: String, default: 'Active'}
   }, {
     timestamps: true
   });

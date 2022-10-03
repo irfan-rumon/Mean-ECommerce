@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user';
-import { UserApiService } from 'src/app/services/user-api.service';
+import { CustomerApiService } from 'src/app/services/customer-api.service';
+import { Customer } from 'src/app/models/customer';
 
 
 
@@ -12,28 +12,40 @@ import { UserApiService } from 'src/app/services/user-api.service';
 })
 export class  UserListComponent  implements OnInit {
 
-  users: any[] = [];
+  customers: any[] = [];
 
-  constructor(private userApi: UserApiService, private router:Router) { }
+  constructor(private customerApi: CustomerApiService,
+              private router:Router) { }
 
   ngOnInit(): void {
-    this.userApi.getUsers().subscribe( (res)=>{
-        let arr:any = res;   //temporary array use kore response obj ke cathck kora
-        this.users = arr.data;
-    } )
+      this.customerApi.getCustomers().subscribe(  (customers:any)=>{
+          this.customers = customers.data;
+          console.log("Ai j amr customer: ", this.customers);
+      })
   }
 
-  onChangeStatus(user: User){
+  setDisabled(customer: any){
+       customer.status = "Disabled";
+       this.customerApi.editCustomer(customer._id, customer).subscribe(  (editedCustomer)=>{
+            for(let c of this.customers){
+              if( c._id == customer._id){
+                 c.status = "Disabled";
+                 break;
+              }
+            }
+       })
+  }
 
- 
-        for(let u of this.users){
-           if( u._id == user._id  ){
-              if( u.status == "Active")u.status = "Disabled";
-              else u.status = "Active";
+  setActive(customer: any){
+    customer.status = "Active";
+    this.customerApi.editCustomer(customer._id, customer).subscribe(  (editedCustomer)=>{
+         for(let c of this.customers){
+           if( c._id == customer._id){
+              c.status = "Active";
+              break;
            }
-            
-        }
-
+         }
+    })
   }
 
 }

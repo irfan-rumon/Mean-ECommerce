@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserApiService } from 'src/app/services/user-api.service';
-
+import { Customer } from 'src/app/models/customer';
+import { CustomerApiService } from 'src/app/services/customer-api.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,7 +14,9 @@ export class RegisterComponent implements OnInit {
   user:User = {} as User;
   passNotMatched: boolean = false;
 
-  constructor(private router: Router, private userApi: UserApiService) { }
+  constructor(private router: Router, 
+              private customerApi: CustomerApiService, 
+              private userApi: UserApiService) { }
 
   ngOnInit(): void {
   }
@@ -22,14 +25,33 @@ export class RegisterComponent implements OnInit {
      if( this.user.password != this.user.passConfirm)
      {
         this.passNotMatched = true;
-        console.log("pass mile nai");
+       
         return;
      }
      //console.log(this.user);
-     this.userApi.addUser(this.user).subscribe();
-     alert('Registration Successfull!');
-     this.router.navigate(['/login']);
-    
+     this.userApi.addUser(this.user).subscribe(   (newUser)=>{
+      if( newUser.roll == 'user'){
+        let customer: any = {
+            userID: newUser._id,
+            name: newUser.fullName,
+            email: newUser.email,
+            address: newUser.address,
+            phone: newUser.phone,
+        }
+        console.log("Amader noya customer: ", customer);
+        this.customerApi.addCustomer( customer ).subscribe(  (res)=>{
+            console.log("done");
+            alert('Registration Successfull!');
+            this.router.navigate(['/login']);
+         
+        },   (err)=>{
+            console.log("customer add hoy nai");
+        });
+     }
+
+     });
+     
+   
 
   }
 

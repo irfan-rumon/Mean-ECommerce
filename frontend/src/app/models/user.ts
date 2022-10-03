@@ -1,5 +1,5 @@
 export interface User{
-    _id?:number;
+    _id?:string;
     userName: string;
     email: string;
     fullName: string;
@@ -8,5 +8,4 @@ export interface User{
     password:string;
     passConfirm?:string;
     roll?:string;
-    status?:string;
   }

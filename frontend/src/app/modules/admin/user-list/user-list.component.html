@@ -1,5 +1,4 @@
 <app-admin-navbar></app-admin-navbar>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,48 +19,70 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div  class="col-lg-8"><h2> Order List</h2></div>
+                    <div  class="col-lg-8"><h2 style="margin-left: 25%; color:blueviolet;"> Customer List</h2></div>
                     
                 </div>
             </div>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th style="width: 4rem;"> User ID</th>
-                        <th style="width: 4rem;"> User Name</th>
+            <div class="col-lg-12 col-sm-12 hero-feature">
+                <div class="card col-lg-12" style="width: 100%;">
+                    <div class="table-responsive" style="width: 100%;">
+                        <table class="table table-bordered tbl-cart">
+                            <thead>
+                                <tr>
+                                    <td class="header">User ID</td>
+                                    
+                                    <td class="header">User Email</td>
+                                    <td class="header">User Address </td>
+                                    <td class="header">User Phone</td>
+                                
+                                    <td class="header">User Status</td>
+                            
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                                <tr *ngFor="let customer of customers" >
+                                    <td class="medium-font">
+                                        {{customer.userID}}
+                                    </td>
+                                   
+                
+                                    <td class="medium-font">
+                                        {{customer.email}}
+                                    </td>
+
+                                    <td class="medium-font">
+                                        {{customer.address}}
+                                    </td>
+
+                                    <td class="medium-font">
+                                        {{customer.phone}}
+                                    </td>
+    
+                                    <td *ngIf="customer.status == 'Active' " class="medium-font" style="color:green">
+                                         {{customer.status}}
+                                        <button type="submit" (click)="setDisabled(customer)">Set Disabled</button>
+                                    </td> 
+
+                                    <td *ngIf="customer.status == 'Disabled' " class="medium-font" style="color:red">
+                                        {{customer.status}}
+                                       <button type="submit" (click)="setActive(customer)">Set Active</button>
+                                   </td> 
+
+                                </tr>
+                                
+                            </tbody>
                         
-                        <th style="width: 4rem;">User Email</th>
-                        <th style="width: 4rem;"> User Phone </th>    
-                        <th style="width: 4rem;">User Address</th>
-                        <th style="width: 4rem;">User Status</th>
-                     
-
-                    </tr>
-                </thead>
-                <tbody *ngFor="let user of users">
-                    <tr *ngIf="user.roll == 'user' ">
-                        <td>{{ user._id}}</td>
-                        <td>{{ user.fullName }}</td>
-                        <td>{{ user.email }}</td> 
-                        <td>{{ user.phone }}</td>
-                        <td>{{ user.address }}</td>
-                        <td *ngIf="user.status=='Active' ">
-                            {{ user.status }}
-                           <button type="submit" (click)="onChangeStatus(user)">Set as Disabled</button>
-
-                        </td>
-
-                        <td *ngIf="user.status=='Disabled' ">
-                            {{ user.status }}
-                           <button type="submit" (click)="onChangeStatus(user)">Set as Active</button>
-
-                        </td>
-                       
-                       
-                    </tr>
-                                  
-                </tbody>
-            </table>
+                        </table>
+                    </div>
+                    
+                
+                    
+                </div>
+              
+    
+            </div>
         
         </div>
     </div>    

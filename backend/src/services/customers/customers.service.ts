@@ -1,28 +1,28 @@
-// Initializes the `products` service on path `/products`
+// Initializes the `customers` service on path `/customers`
 import { ServiceAddons } from '@feathersjs/feathers';
 import { Application } from '../../declarations';
-import { Products } from './products.class';
-import createModel from '../../models/products.model';
-import hooks from './products.hooks';
+import { Customers } from './customers.class';
+import createModel from '../../models/customers.model';
+import hooks from './customers.hooks';
 
 // Add this service to the service type index
 declare module '../../declarations' {
   interface ServiceTypes {
-    'products': Products & ServiceAddons<any>;
+    'customers': Customers & ServiceAddons<any>;
   }
 }
 
 export default function (app: Application): void {
   const options = {
     Model: createModel(app),
-    paginate:   {default:18, max: 20}    //                         app.get('paginate')
+    paginate: app.get('paginate')
   };
 
   // Initialize our service with any options it requires
-  app.use('/products', new Products(options, app));
+  app.use('/customers', new Customers(options, app));
 
   // Get our initialized service so that we can register hooks
-  const service = app.service('products');
+  const service = app.service('customers');
 
   service.hooks(hooks);
 }
