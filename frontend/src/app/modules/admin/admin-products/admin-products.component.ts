@@ -17,12 +17,12 @@ export class AdminProductsComponent implements OnInit {
   ngOnInit(): void {
     this.productApi.getProducts().subscribe(  response => {
       this.products = response.data;
-     // console.log(response['data']);
+    
     } )
   }
 
   onDelete(pr:Product){
-    this.productApi.deleteProduct(pr).subscribe(  () => (this.products = this.products.filter((p: { _id: string | undefined; }) => p._id !== pr._id)) );//internal array thekei delete
+    this.productApi.deleteProduct(pr._id).subscribe(  () => (this.products = this.products.filter((p: { _id: string | undefined; }) => p._id !== pr._id)) );//internal array thekei delete
   }
 
   onEdit(pr:Product){

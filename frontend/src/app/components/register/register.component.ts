@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserApiService } from 'src/app/services/user-api.service';
-import { Customer } from 'src/app/models/customer';
 import { CustomerApiService } from 'src/app/services/customer-api.service';
 @Component({
   selector: 'app-register',

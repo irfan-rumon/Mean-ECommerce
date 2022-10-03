@@ -25,22 +25,22 @@ export class ProductApiService {
 
 
 
-  getProduct(anyId: any): Observable<any> {
-    const url = `${this.apiUrl}/${anyId}`;
+  getProduct(prId: any): Observable<any> {
+    const url = `${this.apiUrl}/${prId}`;
     return this.http.get<any>(url);
   }
 
-  addProduct(any: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, any, httpOptions);
+  addProduct(pr: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, pr, httpOptions);
   }
 
-  editProduct( any:any): Observable<any> {
-    const url = `${this.apiUrl}/${any.id}`;
-    return this.http.put<any>(url, any, httpOptions);
+  editProduct( id:any, data:any): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.put<any>(url, data, httpOptions);
   }
 
-  deleteProduct(any: any): Observable<any> {
-    const url = `${this.apiUrl}/${any.id}`;
+  deleteProduct(id: any): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
     return this.http.delete<any>(url);
   }
 }

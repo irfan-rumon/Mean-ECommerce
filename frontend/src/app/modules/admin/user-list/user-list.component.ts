@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CustomerApiService } from 'src/app/services/customer-api.service';
-import { Customer } from 'src/app/models/customer';
-
-
-
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -20,7 +16,6 @@ export class  UserListComponent  implements OnInit {
   ngOnInit(): void {
       this.customerApi.getCustomers().subscribe(  (customers:any)=>{
           this.customers = customers.data;
-          console.log("Ai j amr customer: ", this.customers);
       })
   }
 

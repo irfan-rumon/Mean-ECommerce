@@ -1,5 +1,4 @@
 import { Component, OnInit} from '@angular/core';
-import { User } from 'src/app/models/user';
 import { UserApiService } from 'src/app/services/user-api.service';
 import { Router } from '@angular/router';
 import { LoggerUser } from 'src/app/models/loggerUser';
@@ -15,7 +14,6 @@ import { CustomerApiService } from 'src/app/services/customer-api.service';
 })
 export class LoginComponent implements OnInit {
 
- 
   user: LoggerUser = {} as LoggerUser;
   customers: any[];
   failedLogin: boolean = false;;

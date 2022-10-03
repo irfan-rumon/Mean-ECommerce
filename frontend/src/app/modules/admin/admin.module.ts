@@ -8,9 +8,9 @@ import { AdminProductsComponent } from './admin-products/admin-products.componen
 import { AddProductsComponent } from './add-products/add-products.component';
 import { AdminOrderComponent } from './admin-order/admin-order.component';
 import { FormsModule } from '@angular/forms';
-import { EditProductComponent } from './edit-product/edit-product.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 
 
@@ -21,14 +21,10 @@ import { UserListComponent } from './user-list/user-list.component';
     AdminFooterComponent,
     AdminProductsComponent,
     AddProductsComponent,
-    EditProductComponent,
     AdminNavbarComponent,
     AdminOrderComponent,
-    UserListComponent
-   
-   
-   
-   
+    UserListComponent,
+    EditProductComponent
   ],
   imports: [
     CommonModule,
