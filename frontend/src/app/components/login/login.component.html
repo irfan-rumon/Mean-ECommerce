@@ -17,21 +17,24 @@
             
              
             <!-- Email input -->
-            <div class="form-outline mb-4">
-              <input type="text"  class="form-control form-control-lg"
-                placeholder="Enter Email" [(ngModel)]="user.email" name="email" #email="ngModel"  email="true" required />
+            <div class="form-outline mb-3 mt-0">
+              <input type="email"  [(ngModel)]="user.email" name="email" class="form-control form-control-lg"
+                placeholder="Enter Email"  #emaill="ngModel"  email="true" required />
+                <div *ngIf="emaill.invalid && (emaill.dirty || emaill.touched)"
+                    class="alert">
+    
+                    <div *ngIf="emaill.errors?.['required']" style="color:red;margin-bottom: 0.5rem;">
+                      *Email is required.
+                    </div>
+  
+                    <div *ngIf="emaill.errors?.['email']"  style="color:red;" >
+                      Email address is not valid. 
+                    </div>
+                            
              
-                <div *ngIf="email.invalid && (email.dirty || email.touched)"
-                   class="alert">
-
-                  <div *ngIf="email.errors?.['required']" style="color:red;margin-bottom: 0.5rem;">
-                    *Valid Email is required.
-                  </div>
-             
-                </div>
-
-
-            </div>
+                </div> 
+                
+              </div>	
   
             <!-- Password input -->
             <div class="form-outline mb-3">
@@ -50,11 +53,11 @@
 
             </div>
 
-            <div *ngIf="email.valid && pass.valid &&  failedLogin" style="color:red;margin-bottom: 0.5rem;">
+            <div *ngIf="emaill.valid && pass.valid &&  failedLogin" style="color:red;margin-bottom: 0.5rem;">
                   *Wrong credentials     
             </div>
 
-            <div *ngIf="email.valid && pass.valid && isDisabled" style="color:red;margin-bottom: 0.5rem;">
+            <div *ngIf="emaill.valid && pass.valid && isDisabled" style="color:red;margin-bottom: 0.5rem;">
                   *Your account is blocked. Please contact with admin.   
             </div>
   

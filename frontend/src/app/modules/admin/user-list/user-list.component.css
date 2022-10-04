@@ -344,3 +344,10 @@ body{margin-top:20px;
     color: white;
     margin-left: 1rem;
 }
+
+#onStatus{
+    background-color: rgb(42, 90, 42);
+    border-radius: 5px;
+    color: white;
+    margin-left: 1rem;
+}

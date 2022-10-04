@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
 
+    this.failedLogin = false;
     this.isDisabled = false;
     this.user.strategy = "local";
     this.userApi.logUser(this.user).subscribe(   (response)=>{   
@@ -59,7 +60,7 @@ export class LoginComponent implements OnInit {
                       }
                 
                 }) 
-    })
+    }, (err)=>{this.failedLogin = true;})
     if(this.isDisabled)this.auth.deleteToken();
 
   }  

@@ -19,7 +19,7 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div  class="col-lg-8"><h2 style="margin-left: 25%; color:blueviolet;"> Customer List</h2></div>
+                    <div  class="col-lg-8"><h2 style="margin-left: 65%; color:blueviolet;"> Customer List</h2></div>
                     
                 </div>
             </div>
@@ -62,12 +62,12 @@
     
                                     <td *ngIf="customer.status == 'Active' " class="medium-font" style="color:green">
                                          {{customer.status}}
-                                        <button type="submit" (click)="setDisabled(customer)">Set Disabled</button>
+                                        <button type="submit" id="onStatus" (click)="setDisabled(customer)">Set Disabled</button>
                                     </td> 
 
                                     <td *ngIf="customer.status == 'Disabled' " class="medium-font" style="color:red">
                                         {{customer.status}}
-                                       <button type="submit" (click)="setActive(customer)">Set Active</button>
+                                       <button type="submit" id="onStatus" (click)="setActive(customer)">Set Active</button>
                                    </td> 
 
                                 </tr>
