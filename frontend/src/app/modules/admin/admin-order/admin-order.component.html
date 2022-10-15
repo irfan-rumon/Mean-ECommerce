@@ -19,7 +19,7 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div  class="col-lg-8"><h2> Order List</h2></div>
+                    <div style="margin-left: 40rem; color: rgb(42, 0, 181); font-weight: bold;"><h2> Order List</h2></div>
                     
                 </div>
             </div>
@@ -65,12 +65,12 @@
                                         {{op.grandTotal}}
                                     </td>
     
-                                    <td *ngIf="op.status=='Pending'" class="medium-font fw-bold " style="color:rgb(236, 13, 13);  font-size:medium">
+                                    <td *ngIf="op.status=='Pending'" class="medium-font fw-bold" style="color:rgb(236, 13, 13);  font-size:medium">
                                         {{op.status}}
-                                        <button type="submit" id="onStatus" (click)="changeStatus(op)">Set as DELIVERED</button>
+                                        <button style="margin-left: 1rem;" type="button" class="btn btn-success" (click)="changeStatus(op)">Set Delivered</button>
                                     </td>
     
-                                    <td *ngIf="op.status=='Delivered'" class="medium-font" style="color: green">
+                                    <td *ngIf="op.status=='Delivered'" class="medium-font  fw-bold" style="color: green">
                                         {{op.status}}
                                         
                                     </td>
