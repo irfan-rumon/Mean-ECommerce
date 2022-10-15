@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
 import { AddProductsComponent } from './add-products/add-products.component';
@@ -17,7 +16,6 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
-    AdminDashboardComponent,
     AdminFooterComponent,
     AdminProductsComponent,
     AddProductsComponent,
