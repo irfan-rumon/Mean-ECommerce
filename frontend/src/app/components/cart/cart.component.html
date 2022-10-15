@@ -18,7 +18,7 @@
                 <table class="table table-bordered tbl-cart">
                     <thead>
                         <tr>
-                            <td class="hidden-xs header">Image</td>
+                            <td class="header">Image</td>
                             <td class="header">Product Name</td>
                            
                             <td class="header">Brand</td>
@@ -31,7 +31,7 @@
                     <tbody *ngFor="let cp of cartProducts">
                        
                         <tr>
-                            <td class="hidden-xs">
+                            <td class="medium-font">
                                 <a href="#">
                                     <img src="{{cp.imageURL}}" alt="Adidas Men Red Printed T-shirt" title="" width="47" height="47">
                                 </a>
@@ -63,12 +63,24 @@
                         </tr>
                         
                     </tbody>
-                    <tr *ngIf="cartProducts.length > 0">
-                        <td colspan="6" align="right">Total:</td>
-                        <td class="total" colspan="2"><b>${{total}}</b>
-                        </td>
-                    </tr>
-                </table>
+                </table>    
+
+                    <div style="margin-left: 22rem; margin-top:3rem;">
+                        <div *ngIf="cartProducts.length > 0">
+                            <h6 >Total:  <span style="color: rgb(35, 101, 4); margin-left: 1rem;"class=" mb-1 text-right ">${{total}}</span></h6>
+                           
+                        </div>
+                        <div *ngIf="cartProducts.length > 0">
+                            <h6 >Shipping:  <span style="color: rgb(35, 101, 4);  margin-left: 1rem;"class=" mb-1 text-right">${{shipping}}</span></h6>
+                        </div>
+                        <div id="tax" *ngIf="cartProducts.length > 0">
+                            <h6 >Grand Total(Inc. Tax):<span style="color: rgb(35, 101, 4); margin-left: 1rem;"class=" mb-1 text-right">${{grandTotal}}</span></h6>
+                           
+                        </div>
+                       
+                    </div>
+                    
+               
             </div>
 
         </div>
@@ -127,20 +139,7 @@
                 style="padding-left: 2.5rem; padding-right: 2.5rem;margin-left: 12rem;margin-top: 2rem;">Checkout</button>
                     
                 </form>
-                <div class="col-lg-4 mt-2">
-                    <div class="row d-flex justify-content-between px-4"  *ngIf="cartProducts.length > 0">
-                        <h6 class="mb-1 text-left">Total:  <span style="color: rgb(35, 101, 4); margin-left: 1rem;"class=" mb-1 text-right ">${{total}}</span></h6>
-                       
-                    </div>
-                    <div class="row d-flex justify-content-between px-4" *ngIf="cartProducts.length > 0">
-                        <h6 class="mb-1 text-left">Shipping:  <span style="color: rgb(35, 101, 4);  margin-left: 1rem;"class=" mb-1 text-right">${{shipping}}</span></h6>
-                    </div>
-                    <div class="row d-flex justify-content-between px-4" id="tax" *ngIf="cartProducts.length > 0">
-                        <h6 class="mb-1 text-left">Grand Total(Inc. Tax):<span style="color: rgb(35, 101, 4); margin-left: 1rem;"class=" mb-1 text-right">${{grandTotal}}</span></h6>
-                       
-                    </div>
-                   
-                </div>
+               
             </div>
         </div>
     </div>
