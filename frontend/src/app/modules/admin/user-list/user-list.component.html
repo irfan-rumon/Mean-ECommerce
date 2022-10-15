@@ -19,7 +19,7 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div  class="col-lg-8"><h2 style="margin-left: 25%; color:blueviolet;"> Customer List</h2></div>
+                    <div  class="col-lg-8"><h2 style="margin-left: 60%; color:rgb(45, 10, 78);"> Customer List</h2></div>
                     
                 </div>
             </div>
@@ -60,14 +60,14 @@
                                         {{customer.phone}}
                                     </td>
     
-                                    <td *ngIf="customer.status == 'Active' " class="medium-font" style="color:green">
+                                    <td *ngIf="customer.status == 'Active' " class="medium-font" style="color:green; font-weight: bold; margin-right: 1rem;">
                                          {{customer.status}}
-                                        <button type="submit" (click)="setDisabled(customer)">Set Disabled</button>
+                                         <button type="button" style="margin-left: 1rem;" (click)="setDisabled(customer)" class="btn btn-danger">Set Disabled</button>
                                     </td> 
 
-                                    <td *ngIf="customer.status == 'Disabled' " class="medium-font" style="color:red">
+                                    <td *ngIf="customer.status == 'Disabled' " class="medium-font" style="color:red; font-weight: bold;">
                                         {{customer.status}}
-                                       <button type="submit" (click)="setActive(customer)">Set Active</button>
+                                        <button type="button" style="margin-left: 1rem;" (click)="setActive(customer)" class="btn btn-success">Set Active</button> 
                                    </td> 
 
                                 </tr>
