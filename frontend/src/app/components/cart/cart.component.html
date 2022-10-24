@@ -1,6 +1,12 @@
 <app-navbar [totalAddedQuantity]="totalAddedQuanty"></app-navbar>
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="row bootstrap snippets" *ngIf="cartProducts.length == 0">
+    <h1 style="margin-top: 5rem; margin-left:38rem; margin-bottom: 20rem; color:red;">No Cart!!!</h1>
+</div>  
+
+<div  *ngIf="cartProducts.length > 0">
 <div class="container bootdey">
 <div class="row bootstrap snippets">
     <div class="col-lg-3 col-md-3 col-sm-12">
@@ -93,21 +99,8 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="row">
-                <div class="col-lg-3 radio-group" >
-                    <div class="row d-flex px-3 radio ms-5" style="margin-left: 5rem;">
-                        <img style="width: 7rem;"class="pay" src="https://i.imgur.com/WIAP9Ku.jpg">
-                       
-                    </div>
-                    <div class="row d-flex px-3 radio ms-5" style="margin-left: 5rem;">
-                        <img style="width: 7rem;" class="pay" src="https://i.imgur.com/OdxcctP.jpg">
-                       
-                    </div>
-                    <div class="row d-flex px-3 radio ms-5" style="margin-left: 5rem;">
-                        <img style="width: 7rem;" class="pay" src="https://i.imgur.com/cMk1MtK.jpg">
-                       
-                    </div>
-                </div>
-                <form class="col-lg-5" #cardForm = "ngForm">
+               
+                <form class="col-lg-5" #cardForm = "ngForm"  style="margin-left: 22rem;">
                     <div class="row px-2">
                         <div class="form-group col-md-6">
                             <label class="form-control-label header">Name on Card</label>
@@ -144,6 +137,9 @@
         </div>
     </div>
 </div>
+
+</div>
+
 
 
 <app-footer></app-footer>

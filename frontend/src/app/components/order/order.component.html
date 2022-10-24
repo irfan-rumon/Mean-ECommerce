@@ -2,7 +2,12 @@
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container bootdey">
-<div class="row bootstrap snippets">
+
+    <div class="row bootstrap snippets" *ngIf="orders.length == 0">
+          <h1 style="margin-top: 5rem; margin-left:31rem; margin-bottom: 20rem; color:red;">No Orders !!!</h1>
+     </div>   
+
+<div class="row bootstrap snippets" *ngIf="orders.length > 0">
     <div class="col-lg-3 col-md-3 col-sm-12">
       
     </div>
@@ -22,9 +27,10 @@
                                 <td class="hidden-xs header">Order Id</td>
                                 <td class="header">Order Date </td>
                                
-                                <td class="header">Product Quantity</td>
+                               
                                 <td class="td-qty header">Total Bill</td>
                                 <td class="header">Status</td>
+                               
                         
                                 
                             </tr>
@@ -35,12 +41,10 @@
                                 <td class="medium-font">
                                     {{op._id}}
                                 </td>
-                                <td class="medium-font">{{ op.createdAt }}</td>
+                                <td class="medium-font">{{ op.createdAt | date }}</td>
             
                                 
-                                <td class="medium-font">
-                                    {{op.totalAddedQuantity}}
-                                </td>
+                               
 
                                 <td class="medium-font">
                                     {{op.grandTotal}}
@@ -54,6 +58,7 @@
                                     {{op.status}}
                                 </td>
                                
+                                
                                 
                                
                             </tr>

@@ -4,7 +4,6 @@ import { ProductApiService } from 'src/app/services/product-api.service';
 import { OrderService } from 'src/app/services/order.service';
 import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
-import { CartProduct } from 'src/app/models/cartProduct';
 import { OrderProduct } from 'src/app/models/orderProduct';
 import { Card } from 'src/app/models/card';
 import { AuthorizationService } from 'src/app/services/authorization.service';
