@@ -55,11 +55,16 @@ export class LoginComponent implements OnInit {
                                         }, (err) => {
                                           
                                           this.failedLogin = true;
+                                          console.log("Login Failed");
                                       } );
                       }
                 
                 }) 
-    })
+    }, (err) => {
+                                          
+      this.failedLogin = true;
+      console.log("Login Failed");
+  });
     if(this.isDisabled)this.auth.deleteToken();
 
   }  
